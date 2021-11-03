@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/Login.css" />
+    <link rel="icon" href="imgs/logoApoena.png" />
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="container">
+        <h1 class="Titulo">
+          <img style="height: 30px" src="imgs/logoApoena.png" alt="" />
+          <span class="text_apoena"> Apoena</span>
+        </h1>
+        <ul class="navbar">
+          <li class="agora">
+            <a href="index.html">Início</a>
+          </li>
+          <li class="agora">
+            <a href="orcamento.html">Orçamento</a>
+          </li>
+          <li class="agora">|</li>
+          <li style="border-bottom: 0.5px solid #04cccc" class="agora">
+            <a href="login.html">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="corpo">
+      <div class="container">
+        <div class="login">
+          <div class="div_logo">
+            <img
+              style="margin-top: 2px; height: 50px"
+              src="./imgs/logoApoena.png"
+              alt=""
+            />
+          </div>
+          <div class="gif">
+            <img id="gifs" src="imgs/giphy.gif" />
+          </div>
+
+          email: <input id="input_email" /><br /><br />
+          senha: <input id="input_senha" /><br /><br />
+          <div class="div_button">
+            <a id="input_a1" onclick="login()">Login</a>
+            <a id="input_a2" href=".//cadastro.html">cadastre-se</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
