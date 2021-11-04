@@ -39,33 +39,95 @@
           <div class="boxes">
             <div class="box">
               <div class="box-2">
-                <span>Nome da empresa:</span>
+                <span>Nome da empresa:</span> <br>
                 <input class="input-empresa" />
-                <br>
-                <span>CNPJ:</span>
-                <input type="number" class="input-empresa" />
-                <br>
-                <span>Senha:</span>
-                <input type="password" class="input-empresa" />
+                <br> <br>
+                <span>CNPJ:</span> <br>
+                <input type="text" id="input_cnpj" maxlength="14" class="input-empresa" onkeyup="on_cnpj()"/> <br>
+                <span id="span_cnpj"></span>
+                
             </div>
             
             <div class="box-3">
-                <span>Responsavel:</span>
+                <span>Responsavel:</span> <br>
                 <input class="input-empresa" />
-                <br>
-                <span>Email:</span>
-                <input type="email" class="input-empresa" />
-                <br>
-                <span>Confimar:</span>
-                <input type="password" class="input-empresa" />
+                <br> <br>
+                <span>Email:</span> <br>
+                <input type="email" id="input_email"  class="input-empresa" onkeyup="email()"/> <br>
+                <span id="span_email" ></span>
+                
               </div>
+            </div>
+            <div class="box-4">
+              <div id="div_senha">
+                <span>Senha:</span>
+                <input type="password" id="input_senha" class="input-empresa" onkeyup="senha()"/> <br>
+                <span id="span_senha" ></span>
+              </div>
+              <br> <br>
+              <div id="div_confirmar">
+              <span>Confimar:</span>
+              <input type="password" id="input_confimar" class="input-empresa" onkeyup="confirmar()"/> <br>
+              <span id="span_confirmar"></span>
+            </div>
+            </div>
             <div>
               <br /><br />
               <button class="button_conta">Criar conta</button>
             </div>
-          </div>
         </div>
       </div>
     </div>
   </body>
 </html>
+<script>
+function on_cnpj(){
+  var cnpj_cnpj = input_cnpj.value;
+
+  if(cnpj_cnpj.length == ""){
+    span_cnpj.innerHTML = `CNPJ em bramco`;
+  }else{
+    span_cnpj.innerHTML = ``;
+  }
+}
+
+
+  function email(){
+    var email = input_email.value;
+
+    if(email.length == ""){
+      span_email.innerHTML = `Email em branco`
+    }else{
+      span_email.innerHTML = `Email em branco`
+    }
+
+    if (email.indexOf("@") > -1) {
+            if (email.indexOf(".com") > -1) {
+              span_email.innerHTML = `<span style="color: lime;">Email válido</span>`;
+            } else {
+              span_email.innerHTML = `<span style="color: red;">Email inválido</span>`;
+            }
+        } else {
+          span_email.innerHTML = `<span style="color: red;">Email inválido</span>`;
+        }
+  }
+  var senha_senha = input_senha.value;
+  function senha(){
+    senha_senha = senha_senha;
+    if(senha_senha.length == ""){
+      span_senha.innerHTML = `Senha em branco`;
+    } else{
+      span_senha.innerHTML = ``
+    }  
+  }
+  function confirmar(){
+    senha_senha = senha_senha;
+    var confimar_confirmar = input_confimar.value;
+  
+    if(confimar_confirmar.length == senha_senha){
+      span_confirmar.innerHTML = `Senha inválido`;
+    }else{
+      span_confirmar.innerHTML = `Senha válido`;
+    }
+};
+</script>
