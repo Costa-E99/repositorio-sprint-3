@@ -99,3 +99,20 @@ h1 {
 #div_senha {
   margin-right: 5%;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-div {
+  width: 50px;
+  /* border: 3px solid pink; */
+  margin: auto;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
