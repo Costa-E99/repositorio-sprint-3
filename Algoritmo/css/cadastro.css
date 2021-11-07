@@ -71,19 +71,31 @@ h1 {
   border-radius: 8px;
   margin-left: 44%;
 }
-.boxes {
-  align-items: center;
-  justify-content: center;
+.box {
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .input-empresa {
   border-radius: 8px;
-  margin-top: 10%;
   border-color: aqua;
 }
 .box-2 {
-  background-color: red;
-  background-size: contain;
-  margin-right: 70%;
+  align-self: center;
+  padding: 4%;
+}
+.box-3 {
+  align-self: center;
+  padding: 4%;
+}
+.box-4 {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 2%;
+  padding: 2%;
+  height: 1px;
+}
+#div_senha {
+  margin-right: 5%;
 }
