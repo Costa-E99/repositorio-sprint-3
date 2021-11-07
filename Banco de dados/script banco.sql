@@ -185,5 +185,15 @@ select * from dados inner join caminhao on fkcaminhao = idcaminhao;
     
     
     
-	
-    
+select dados.iddados, viagem.idviagem, dados.tempatual as Temperatura, dados.localizacao as GPS, dados.fkcaminhao as Caminhão, dados.datahora, 
+viagem.datainicio, viagem.datafim
+from dados
+join caminhao on caminhao.idcaminhao = dados.fkcaminhao
+join viagem on viagem.fkcaminhao = caminhao.idcaminhao
+where datahora >= viagem.datainicio
+and datahora <= viagem.datafim
+and viagem.idviagem = 400;
+
+select * from produto;
+select * from viagem;
+update dados set datahora = 20210102113000 where iddados = 211;
