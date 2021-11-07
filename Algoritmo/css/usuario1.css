@@ -46,19 +46,20 @@ color: white;
     
 }
 
-.meio{
-    height: 50vh;
+#meio{
+    height: 60vh;
     width: 25vw;
     background-color: #031727 ;
     margin-left: 35%;
     color: black;
     margin-top: 5%;
+    display: block;
 }
-.meio h2{
+#meio h2{
     margin-left: 20%;
     color: white;
 }
-.meio .botao1{
+#meio .botao1{
     height: 7vh;
     width: 15vw;
     background-color: black;
@@ -79,8 +80,8 @@ input{
     margin-top: 10%;
     border: black;
 }
-.inpput ::placeholder{
-    color: white;
+#inpput ::placeholder{
+    color: white
     ;
 }
 .botao1{
@@ -99,4 +100,20 @@ input{
     background-color: black;
     color: white;
     border-radius: 20px;
+}
+#tela2{
+  height: 50vh;
+  width: 25vw;
+  background-color: #031727 ;
+  margin-left: 35%;
+  color: black;
+  margin-top: 5%;
+  display: none;
+}
+span{
+ 
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
 }
