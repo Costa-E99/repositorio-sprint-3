@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="../Algoritmo/css/usuario.css" />
+
+    <!-- Da acesso a lib através do cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header">
+        <div class="container">
+          <h1 class="Titulo">
+            <img style="height: 30px" src="imgs/logoApoena.png" alt="" />
+            <span class="text_apoena"> Apoena</span>
+          </h1>
+          <ul class="navbar">
+            <li class="agora">
+              <a href="index.html">Início</a>
+            </li>
+            <li class="agora">
+              <a href="orcamento.html">Orçamento</a>
+            </li>
+            <li class="agora">|</li>
+            <li style="border-bottom: 0.5px solid #04cccc" class="agora">
+              <a href="login.html">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    <div class="bg" >
+        <div class="esq">
+            <!-- Esquerda Cima -->
+            <div class="area" >
+                <div class="titulo">
+                <h1>Bem-vindo, ${nome}!</h1>
+                </div>
+                <div class="container">
+                    <div id="textinho">
+                        Selecione a Viagem
+                    </div>
+                    <div id="botoes">
+                        <button onclick ="setarDados400()" class="botao" id="viagem400">400</button>
+                        <button onclick ="setarDados401()" class="botao" id="viagem401">401</button>
+                        <button onclick ="setarDados402()" class="botao" id="viagem402">402</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dir">    
+            <!-- Direita Cima -->
+            <div class="graph" >
+                <canvas id="myChart2" style="width: 100%; height: 100%"></canvas>
+            </div>
+        
+            <!-- Direita Baixo -->
+            <div class="graph">
+                <canvas id="myChart3" style="width: 100%; height: 100%"></canvas>
+            </div>
+        </div>
+    </div>
+  </body>
+
+</html>
+
+<script>
+  // Inicia uma variável do tipo constante (não pode ser reatribuida)
+  var configLinha = { 
+    type: "line", // tipo do gráfico
+    data: { // objeto que vai conter os dados do gráfico
+      labels: [ "01:30:00", "02:30:00", "03:30:00", "04:30:00", "05:30:00", "06:30:00", "07:30:00", "08:30:00", "09:30:00", "10:30:00", "11:30:00",], // labels (rótulos) que serão identificados os nossos dados 
+      datasets: [ // datasets (conjunto de dados)
+      {
+          label: "Alerta Crítico Hipertermia",
+          data: [26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26],
+          backgroundColor: "#DC143C",
+          borderColor: "#DC143C"
+        },
+        {
+            label: "Alerta Preventivo Hipertermia",
+            data: [22.75, 22.75, 22.75, 22.75, 22.75, 22.75, 22.75, 22.75, 22.75, 22.75, 22.75, 22.75],
+            backgroundColor: "#FFD700",
+            borderColor: "#FFD700"
+        },
+        {
+          label: "Variação de Temperatura", // irá conter o rótulo principal do nosso gráfico
+          data: [20.31, 27.15, 24.00, 14.96, 10.54, 11.11, 17.55, 19.45, 23.70, 24.54, 26.98, 24.00], // os dados referentes aqueles rótulos
+          backgroundColor: "#2196F3", // cor das "bolinhas" do gráfico
+          borderColor: "#3F51B5" // cor da "linha" do gráfico
+        },
+        {
+            label: "Alerta Preventivo Hipotermia",
+            data: [16.25, 16.25, 16.25, 16.25, 16.25, 16.25, 16.25, 16.25, 16.25, 16.25, 16.25, 16.25],
+            backgroundColor: "#FFD700",
+            borderColor: "#FFD700"
+        },
+        {
+            label: "Alerta Crítico Hipotermia",
+            data: [13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13],
+            backgroundColor: "#DC143C",
+            borderColor: "#DC143C"
+        },
+      ]
+    },
+    options: {
+      maintainAspectRatio: false 
+      /* maintainAspectRatio (manter relação de aspecto) 
+        caso true: ele "obdece" a altura e largura que colocamos
+        caso false: ele não "obdece" a altura e largura que colocamos e se ajusta ao componente pai
+      */
+    }
+  }
+  var configPizza = { 
+    type: "pie", // tipo do gráfico
+    data: { // objeto que vai conter os dados do gráfico
+      labels: ["Hipotermia", "Ideal", "Hipertermia"], // labels (rótulos) que serão identificados os nossos dados 
+      datasets: [ // datasets (conjunto de dados)
+        {
+          label: "Análise de Temperatura", // irá conter o rótulo principal do nosso gráfico
+          data: [3,3,5], // os dados referentes aqueles rótulos
+          backgroundColor: ["#2A9DF4", "#C5E90B", "#FF0000"], // cor das "bolinhas" do gráfico
+          borderColor: ["#1167B1", "#73763D", "#9E1A1A"] // cor da "linha" do gráfico
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false 
+      /* maintainAspectRatio (manter relação de aspecto) 
+      caso true: ele "obdece" a altura e largura que colocamos
+        caso false: ele não "obdece" a altura e largura que colocamos e se ajusta ao componente pai
+      */
+    }
+  }
+
+  /* aqui obrigatoriamente tem que colocar new Chart() para criar um novo chart 
+  e passar dentro dos (parênteses) o elemento canvas que você quer mandar e 
+  separado pela virgula o que você quer mandar, no nosso caso a config que fizemos 
+  */
+ 
+    var myChartLine = new Chart(document.getElementById("myChart2"), configLinha); 
+    var myChartLine = new Chart(document.getElementById("myChart3"), configPizza);
+
+ </script>

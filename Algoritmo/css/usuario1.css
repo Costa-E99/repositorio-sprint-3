@@ -101,6 +101,10 @@ input{
     color: white;
     border-radius: 20px;
 }
+a:hover{
+  height: 80%;
+  width: 80%;
+}
 #tela2{
   height: 50vh;
   width: 25vw;

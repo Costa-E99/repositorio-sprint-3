@@ -36,15 +36,44 @@
     <div class="empresa_nome">  <h2> Bem- Vindos ${nome da empresa} </h2>
     </div>
     <!-- -- banner -- -->
-    <div class="meio"> 
+    <div id="meio"> 
         
         <h2> olá ${nome respo}</h2>
-       <button class="botao1" onclick="analisar_viagem()" > Analisar viagem </button>
-       <button class="botao1"> começar viagem </button>
-       <input onchange="aparecer_alert()" class="inpput" type="text" placeholder="registre  seu caminhao">
-       <button onclick="finalizar()" class="botao3">finalizar registro</button>
+       <button class="botao1" onclick="analisar_viagem()"><a href="../Algoritmo/dashboard (3).html">  Analisar viagem </a> </button>
+       <button onclick ="começar_viagem()"class="botao1"> começar viagem </button>
+       <input onclick="aparecer_alert()" id="inpput" type="text" placeholder="registre  seu caminhao">
+       <button  onclick="finalizar()"   class="botao3"> 
+       <span id=placa></span>
     </div>
+    <div  id="tela2"> 
+        
+        
+        <input type="text" placeholder="data Inícial">
+        <input type="text" placeholder="data final">
+        <input type="text" placeholder="produto">
+        <input type="text" placeholder="caminhao">
+        
+       </div>
    
 
 </body>
 </html>
+<script>
+    function analisar_viagem(){
+        
+    }
+    function começar_viagem(){
+        meio.style.display=`none`
+        tela2.style.display=`block`
+    } 
+    function aparecer_alert() {
+        alert("digite a placa do seu caminhão")
+    }
+    function finalizar(){
+        var qnt = inpput.value
+        if(qnt.length < 8 ||qnt.length > 8){
+            placa.innerHTML="<br>é necessario uma placa de 8 digitos";
+            placa.style.color="red"
+         }
+    }
+</script>
