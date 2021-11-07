@@ -103,7 +103,7 @@ function limparFormulario() {
         var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
 
         var nome = formulario.get("nome");
-        var cnpj = formulario.get("cnpj");
+        var cnpj = Number(formulario.get("cnpj"));
         var responsavel = formulario.get("responsavel");
         var email = formulario.get("email");
         var senha = formulario.get("senha");
@@ -136,6 +136,12 @@ function limparFormulario() {
 
         if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            finalizarAguardar();
+            return false;
+        }
+
+        if (cnpj < 14 || cnpj > 14){
+          window.alert("Ops, cnpj inválido! Verifique e tente novamente.");
             finalizarAguardar();
             return false;
         }
