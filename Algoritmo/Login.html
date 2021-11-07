@@ -46,7 +46,7 @@
           </div>
 
           email: <input id="input_email" /><br /><br />
-          senha: <input id="input_senha" /><br /><br />
+          senha: <input type="password" id="input_senha" /><br /><br />
           <div class="div_button">
             <a id="input_a1" onclick="login()">Login</a>
             <a id="input_a2" href=".//cadastro.html">cadastre-se</a>
@@ -54,5 +54,49 @@
         </div>
       </div>
     </div>
+
+    <div id="div_mensagem"></div>
   </body>
 </html>
+
+<script>
+
+    function login() {
+      var email = input_email.value;
+      var senha = input_senha.value;
+
+      if (email.length == "" && senha.length == "") {
+        alert("Preencha todos os campos!");
+      }  else {
+        div_mensagem.innerHTML = "";
+        if (email.length == "") {
+        alert("Preencha o email.");
+      } else {
+        div_mensagem.innerHTML = "";
+           
+      } 
+      } 
+      if (senha.length == "") {
+            alert("Preencha a senha.");
+          } else {
+            div_mensagem.innerHTML = "";
+          } 
+
+          
+      // FUNÇOES EMAIL
+      if (eail.indexmOf("@") > -1) {
+            if (email.indexOf(".com") > -1) {
+              alert("Email válido!"); 
+            } else {
+              alert("Email inválido!"); 
+            }
+        } else {
+          alert("Email inválido!"); 
+        }
+
+      
+
+
+    }
+
+</script>
