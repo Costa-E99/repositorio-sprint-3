@@ -40,20 +40,29 @@
         
         <h2> olá ${nome respo}</h2>
        <button class="botao1" onclick="analisar_viagem()"><a href="../Algoritmo/dashboard (3).html">  Analisar viagem </a> </button>
-       <button onclick ="começar_viagem()"class="botao1"> começar viagem </button>
-       <input onclick="aparecer_alert()" id="inpput" type="text" placeholder="registre  seu caminhao">
+       <button onclick ="gerenciar_viagem()"class="botao1">Gerenciar Viagem</button>
+       <input onclick="aparecer_alert()" id="inpput" type="text" placeholder="Registre seu caminhão">
        <button  onclick="finalizar()"   class="botao3"> 
        <span id=placa></span>
     </div>
     <div  id="tela2"> 
         
+        <div class="tela-botoes">
+            <input type="text" placeholder="Data Inicial">        
+            <input type="text" placeholder="Produto">
+            <input type="text" placeholder="Caminhao">            
+                        
+            <button class="botao3" onclick="iniciar_viagem()">Iniciar Viagem</button> <br>
+            <button class="botao3" onclick="encerrar_viagem()">Encerrar Viagem</button>
+        </div>
+        <br> <br> <br>
         
-        <input type="text" placeholder="data Inícial">
-        <input type="text" placeholder="data final">
-        <input type="text" placeholder="produto">
-        <input type="text" placeholder="caminhao">
+        <!-- VISUALIZAÇÃO DOS DADOS -->
+        <div class="visu-dados">
+            VISUALIZAÇÃO DOS DADOS
+        </div>
         
-       </div>
+    </div>
    
 
 </body>
@@ -62,7 +71,7 @@
     function analisar_viagem(){
         
     }
-    function começar_viagem(){
+    function gerenciar_viagem(){
         meio.style.display=`none`
         tela2.style.display=`block`
     } 
