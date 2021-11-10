@@ -417,16 +417,16 @@ a {
 
 #ctt_nome {
   margin-bottom: 30px;
-  height: 40px;
-  width: 517px;
+  height: 7vh;
+  width: 38vw;
   background-color: #01333300;
   border: solid #fff 1px;
 }
 
 #ctt_email {
   margin-bottom: 30px;
-  height: 40px;
-  width: 517px;
+  height: 7vh;
+  width: 38vw;
   align-items: center;
   justify-content: left;
   background-color: #01333300;
@@ -435,8 +435,8 @@ a {
 
 #ctt_mensagem {
   margin-bottom: 30px;
-  height: 200px;
-  width: 517px;
+  height: 30vh;
+  width: 38vw;
   align-items: flex-start;
   justify-content: left;
   background-color: #01333300;
@@ -444,13 +444,14 @@ a {
 }
 
 #ctt_enviar {
-  height: 50px;
-  width: 517px;
+  height: 7vh;
+  width: 39vw;
   justify-content: center;
   align-items: center;
   display: flex;
   background-color: #01333300;
   border: #fff solid 1px;
+  color: #fff;
 }
 
 #ctt_mensagem::placeholder {
@@ -464,11 +465,6 @@ a {
 }
 
 #ctt_email::placeholder {
-  color: #fff;
-  text-align: center;
-}
-
-#ctt_enviar::placeholder {
   color: #fff;
   text-align: center;
 }
