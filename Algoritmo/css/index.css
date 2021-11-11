@@ -281,6 +281,10 @@ a {
   height: 47.5vh;
   width: 100%;
 
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
   /* margin-top: 25px; */
 }
 /* ----------------- .cimaesquerda---------------- */
@@ -509,9 +513,7 @@ a {
   justify-content: center;
 }
 
-/*
-.footer .container img{
-    width: 250px;
-    margin-top: 40px;
+.tela_5{
+  margin-top: 2vh;
 }
-*/
+
