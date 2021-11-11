@@ -39,13 +39,16 @@
     <div id="meio"> 
         
         <h2> olá ${nome respo}</h2>
+      
+      
        <button class="botao1" onclick="analisar_viagem()"><a href="../Algoritmo/dashboard (3).html">  Analisar viagem </a> </button>
        <button onclick ="gerenciar_viagem()"class="botao1">Gerenciar Viagem</button>
        <input onclick="aparecer_alert()" id="inpput" type="text" placeholder="Registre seu caminhão">
-       <button  onclick="finalizar()"   class="botao3"> 
+       <button  onclick="finalizar()"   class="botao3" >digite aqui </button>
        <span id=placa></span>
     </div>
     <div  id="tela2"> 
+        <button onclick="voltar()" class="botao0"> </button>  
         
         <div class="tela-botoes">
             <input type="text" placeholder="Data Inicial">        
@@ -58,9 +61,9 @@
         <br> <br> <br>
         
         <!-- VISUALIZAÇÃO DOS DADOS -->
-        <div class="visu-dados">
+        <!-- <div class="visu-dados">
             VISUALIZAÇÃO DOS DADOS
-        </div>
+        </div> -->
         
     </div>
    
@@ -68,6 +71,12 @@
 </body>
 </html>
 <script>
+      function voltar(){
+        location.reload()
+        
+
+        
+    }
     function analisar_viagem(){
         
     }
@@ -81,7 +90,7 @@
     function finalizar(){
         var qnt = inpput.value
         if(qnt.length < 8 ||qnt.length > 8){
-            placa.innerHTML="<br>é necessario uma placa de 8 digitos";
+            placa.innerHTML=`<br> <br>é necessario uma placa de 8 digitos`;
             placa.style.color="red"
          }
     }
