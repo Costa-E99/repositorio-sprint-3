@@ -47,7 +47,7 @@
                 <input class="input-empresa" name="nome" placeholder="Apoena" />
                 <br> <br>
                 <span>CNPJ:</span> <br>
-                <input type="text" id="input_cnpj" name="cnpj" maxlength="14" class="input-empresa" placeholder="XX. XXX. XXX/0001-XX"/> <br>
+                <input minlength="14" type="text" id="input_cnpj" name="cnpj" maxlength="14" class="input-empresa" placeholder="XX. XXX. XXX/0001-XX"/> <br>
                 <span id="span_cnpj"></span>
                 
             </div>
@@ -140,7 +140,7 @@ function limparFormulario() {
             return false;
         }
 
-        if (cnpj < 14 || cnpj > 14){
+        if (cnpj.length == 14){
           window.alert("Ops, cnpj inválido! Verifique e tente novamente.");
             finalizarAguardar();
             return false;
