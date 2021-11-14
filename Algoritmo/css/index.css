@@ -362,6 +362,25 @@ a {
   color: whitesmoke;
   margin: 0% 0% 0% 30%;
 }
+.baixoesquerda button {
+  height: 10%;
+  width: 15%;
+  background-color: black;
+  border-radius: 10px;
+  border-color: darkturquoise;
+  color: whitesmoke;
+  /*margin: 0% 0% 0% 30%;*/
+}
+.baixoesquerda div {
+  height: 10%;
+  width: 15%;
+  background-color: black;
+  border-radius: 10px;
+  border-color: darkturquoise;
+  color: whitesmoke;
+  margin-left: 80%;
+  margin-top: -6%;
+}
 .baixodireita {
   height: 100%;
   width: 100%;
