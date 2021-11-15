@@ -39,13 +39,21 @@
     <div id="meio"> 
         
         <h2> olá ${nome respo}</h2>
+      
+      
        <button class="botao1" onclick="analisar_viagem()"><a href="../Algoritmo/dashboard (3).html">  Analisar viagem </a> </button>
        <button onclick ="gerenciar_viagem()"class="botao1">Gerenciar Viagem</button>
        <input onclick="aparecer_alert()" id="inpput" type="text" placeholder="Registre seu caminhão">
+<<<<<<< HEAD
        <button  onclick="finalizar()"   class="botao3"> 
        <span id="placa"></span>
+=======
+       <button  onclick="finalizar()"   class="botao3" >digite aqui </button>
+       <span id=placa></span>
+>>>>>>> 81d569b05d6f125e3c8e458978a5a05c110a7fc1
     </div>
     <div  id="tela2"> 
+        <button onclick="voltar()" class="botao0"> </button>  
         
         <div class="tela-botoes">
             <input type="text" placeholder="Data Inicial">        
@@ -58,9 +66,15 @@
         <br> <br> <br>
         
         <!-- VISUALIZAÇÃO DOS DADOS -->
+<<<<<<< HEAD
         <div class="visu-dados">
             
         </div>
+=======
+        <!-- <div class="visu-dados">
+            VISUALIZAÇÃO DOS DADOS
+        </div> -->
+>>>>>>> 81d569b05d6f125e3c8e458978a5a05c110a7fc1
         
     </div>
    
@@ -68,6 +82,12 @@
 </body>
 </html>
 <script>
+      function voltar(){
+        location.reload()
+        
+
+        
+    }
     function analisar_viagem(){
         
     }
@@ -81,7 +101,7 @@
     function finalizar(){
         var qnt = inpput.value
         if(qnt.length < 8 ||qnt.length > 8){
-            placa.innerHTML="<br>é necessario uma placa de 8 digitos";
+            placa.innerHTML=`<br> <br>é necessario uma placa de 8 digitos`;
             placa.style.color="red"
          }
     }
