@@ -32,7 +32,7 @@ create table empresa(
   create table dados(
   iddados int primary key auto_increment,
   tempatual decimal(4,2),
-  localizao varchar(120),
+  localizacao varchar(120),
   datahora datetime,
   fkcaminhao int) auto_increment = 200;
 alter table dados add foreign key (fkcaminhao) references caminhao(idcaminhao);
@@ -98,7 +98,7 @@ insert into caminhao (idcaminhao, placa) values
 select * from caminhao;
     
 -- INSERINDO VALORES NA TABELA DADOS
-insert into dados (iddados, tempatual, localizao, datahora) values
+insert into dados (iddados, tempatual, localizacao, datahora) values
 	(null, 10.93, 'Avenida Idalécio Carone', '2021-10-17 19:30:53'),
     (null, 11.45, 'Rua João Vicente Ferreira', '2021-10-19 14:02:33'),
     (null, 15.06, 'Travessa Francisco Saldanha', '2021-08-25 15:15:15'),
