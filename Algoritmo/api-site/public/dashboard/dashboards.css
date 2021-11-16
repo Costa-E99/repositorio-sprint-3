@@ -5,6 +5,8 @@ body {
   font-family: "Exo 2", sans-serif;
 }
 
+
+
 .dash-right .avisos {
   width: 100%;
   /* border: 3px solid pink; */
@@ -131,26 +133,36 @@ body {
   justify-content: center;
   width: 100%;
   margin-top: 30px;
+  
+  
 }
 
 .perigo-frio {
   background-color: #5c6bc0;
+  border-radius: 15px;
 }
 
 .perigo-quente {
   background-color: #ff7043;
+  border-radius: 15px;
 }
 
 .alerta-frio {
   background-color: #42a5f5;
+  border-radius: 15px;
 }
 
 .alerta-quente {
   background-color: #ffee58;
+  border-radius: 15px;
+  
 }
+
+
 
 .ideal {
   background-color: #9ccc65;
+  border-radius: 15px;
 }
 
 .item-regua {
@@ -158,7 +170,7 @@ body {
   width: 15%;
   margin: 5px;
   text-align: center;
-  padding-top: 15px;
+  padding-top: 15px; 
 }
 
 .cards {
@@ -195,7 +207,7 @@ body {
   width: 100%;
   border-bottom: solid white 1px;
   text-align: left;
-  font-weight: lighter;
+  font-weight: 400;
   margin: 20px;
 }
 
