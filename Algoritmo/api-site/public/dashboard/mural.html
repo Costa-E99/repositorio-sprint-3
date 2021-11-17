@@ -58,28 +58,38 @@
 
             <div class="avisos">
                 <div class="container">
-                    <h1>Publicar um aviso</h1>
+                    <h1>Cadastrar caminhão</h1>
                     <div class="div-form">
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                             <label>
-                                Título:
-                                <br>
-                                <input name="titulo" id="titulo" maxlength="100" type="text">
+                                <h3>Cadastre seu caminhão:</h3>
+                                Placa: <input name="titulo" id="placa" maxlength="8" type="text" placeholder="AAA-0000" disabled>
                             </label>
                             <br>
                             <label>
-                                Descrição (máximo de 250 caracteres):
+                                <h3>Cadastre seu Produto:</h3>
+                                Nome: <input name="titulo" id="nome_prod" maxlength="45" type="text" placeholder="Morango, Leite..." disabled>
                                 <br>
-                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                                <br>
+                                Categoria: <input name="titulo" id="categoria" maxlength="45" type="text" placeholder="Fruta, Laticínio..." disabled>
                             </label>
                             <br>
-                            <button>Enviar</button>
+                            <label>
+                                <h3>Cadastre a data da viagem:</h3>
+                                Data de inicio: <input name="titulo" id="dt_inicio" maxlength="45" type="text" placeholder="2021-11-29" disabled>
+                                <br>
+                                <br>
+                                Data de chegada: <input name="titulo" id="dt_chegada" maxlength="45" type="text"
+                                placeholder="2021-11-04" disabled>
+                            </label>
+                            <br>
+                            <br>
+                            <div class="div_botoes_cadastro">
+                            <button onclick="cadastrar_caminhao()">Cadastre seu Caminhão</button>
+                            <button onclick="cadastrar_produto()">Cadastre seu Produto</button>
+                            <button onclick="cadastrar_viagem()">Comece uma Viagem</button>
+                            </div>
                         </form>
-                    </div>
-                    <h1>Mural de Avisos</h1>
-                    <div class="div-results">
-                        <div id="feed_container" class="feed-container">
-                        </div>
                     </div>
                 </div>
             </div>
@@ -87,19 +97,27 @@
 
 
 
-            <!-- MODAL -->
-            <!-- <div id="div_modal" class="div-modal">
-                <div id="modal_backdrop" onclick="fecharModal()" class="modal-backdrop">
-                </div>
-                <div id="modal_container" class="modal-container">
-                    <button class="btn-fechar-modal" onclick="fecharModal()">X</button>
-                </div>
-            </div> -->
+            <!-- create table caminhao(
+    idcaminhao int primary key auto_increment,
+    placa char(8),
+    fkempresa int
+    ) auto_increment = 100;
 
-            <!-- AGUARDAR -->
-            <!-- <div id="div_aguardar" class="div-aguardar">
-                <img src="./assets/aguarde-pink3.gif" id="img_aguarde">
-            </div>  -->
+    create table produto(
+    idproduto int primary key auto_increment,
+    nome varchar(45),
+    categoria varchar(45),
+    tempmax decimal(4,2),
+    tempmin decimal(4,2)
+    ) auto_increment = 300;
+   
+    create table viagem (
+    idviagem int primary key auto_increment,
+    datainicio date,
+    datafim date,
+    fkproduto int,
+    fkcaminhao int
+    ) auto_increment = 400; -->
 
         </div>
     </div>
@@ -112,7 +130,23 @@
 </html>
 
 <script>
-
+    function cadastrar_caminhao() {
+        var input = document.querySelector("#placa");
+        input.disabled = false;
+    }
+    function cadastrar_produto() {
+        var input_2 = document.querySelector("#nome_prod");
+        var input_3 = document.querySelector("#categoria");
+        input_2.disabled = false;
+        input_3.disabled = false;
+    }
+    function cadastrar_viagem() {
+        var input_4 = document.querySelector("#dt_inicio");
+        var input_5 = document.querySelector("#dt_chegada");
+        input_4.disabled = false;
+        input_5.disabled = false;
+    }
+/*
     function limparFormulario() {
         document.getElementById("form_postagem").reset();
     }
@@ -256,5 +290,5 @@
 
         return false;
     }
-
+*/
 </script>
