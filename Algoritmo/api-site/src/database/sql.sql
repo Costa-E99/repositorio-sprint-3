@@ -84,3 +84,11 @@ alter table dados add foreign key (fkcaminhao) references caminhao(idcaminhao);
    ) auto_increment = 400;
 alter table viagem add foreign key (fkproduto) references produto(idproduto);
 alter table viagem add foreign key (fkcaminhao) references caminhao(idcaminhao);
+
+CREATE TABLE medida (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	temperatura DECIMAL,
+	umidade DECIMAL,
+	momento DATETIME,
+	fk_aquario INT
+);
