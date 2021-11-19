@@ -247,12 +247,16 @@ body {
 }
 
 .btn-chart {
-  font-family: "Exo 2", sans-serif;
   border: 0;
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
   color: white;
-  background-color: #e6005a;
+  background-color: #094373;
   margin: 5px;
+  border-radius: 15px;
+}
+
+.btn-nav {
+  background-color: #186baf;
 }
