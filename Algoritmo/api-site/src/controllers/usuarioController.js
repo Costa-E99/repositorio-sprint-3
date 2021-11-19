@@ -121,11 +121,38 @@ function cadastrar_usuario(req, res) {
             );
     }
 }
+// function cadastrar_caminhao(req, res) {
+//     var fkempresa = req.body.fkempresa;
+//     var placa = req.body.placa;
+
+//     if (fkempresa == undefined) {
+//         res.status(400).send("erro ao trazer a fk do banco!");
+//     } else if (placa == undefined) {
+//         res.status(400).send("placa indefinida");
+//     } else {
+//         usuarioModel.cadastrar_caminhao(placa, fkempresa, )
+//             .then(
+//                 function (resultado) {
+//                     res.json(resultado);
+//                 }
+//             ).catch(
+//                 function (erro) {
+//                     console.log(erro);
+//                     console.log(
+//                         "\nHouve um erro ao cadastrar o caminhão  ",
+//                         erro.sqlMessage
+//                     );
+//                     res.status(500).json(erro.sqlMessage);
+//                 }
+//             );
+//     }
+// }
 
 module.exports = {
     entrar,
     cadastrar_empresa,
     cadastrar_usuario,
     listar,
+    // cadastrar_caminhao,
     testar
 }
