@@ -32,7 +32,7 @@ create table empresa(
   create table dados(
   iddados int primary key auto_increment,
   tempatual decimal(4,2),
-  localizacao varchar(120),
+  localizao varchar(120),
   datahora datetime,
   fkcaminhao int) auto_increment = 200;
 alter table dados add foreign key (fkcaminhao) references caminhao(idcaminhao);
@@ -55,7 +55,13 @@ alter table dados add foreign key (fkcaminhao) references caminhao(idcaminhao);
 alter table viagem add foreign key (fkproduto) references produto(idproduto);
 alter table viagem add foreign key (fkcaminhao) references caminhao(idcaminhao);
 
-
+CREATE TABLE medida (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	temperatura DECIMAL,
+	umidade DECIMAL,
+	momento DATETIME,
+	fk_aquario INT
+);
 -- INSERINDO VALORES NA TABELA EMPRESA
 insert into empresa values 
 	(null, 'Yokono', 'joao.pedro@yokono.com.br', '23960137000193', 'Joao Pedro'),
@@ -98,7 +104,7 @@ insert into caminhao (idcaminhao, placa) values
 select * from caminhao;
     
 -- INSERINDO VALORES NA TABELA DADOS
-insert into dados (iddados, tempatual, localizacao, datahora) values
+insert into dados (iddados, tempatual, localizao, datahora) values
 	(null, 10.93, 'Avenida Idalécio Carone', '2021-10-17 19:30:53'),
     (null, 11.45, 'Rua João Vicente Ferreira', '2021-10-19 14:02:33'),
     (null, 15.06, 'Travessa Francisco Saldanha', '2021-08-25 15:15:15'),
@@ -183,8 +189,7 @@ select * from dados inner join caminhao on fkcaminhao = idcaminhao;
 
 
     
-    
-    
+use sprint2;
 select dados.iddados, viagem.idviagem, dados.tempatual as Temperatura, dados.localizacao as GPS, dados.fkcaminhao as Caminhão, dados.datahora, 
 viagem.datainicio, viagem.datafim
 from dados
@@ -197,3 +202,24 @@ and viagem.idviagem = 400;
 select * from produto;
 select * from viagem;
 update dados set datahora = 20210102113000 where iddados = 211;
+select * from empresa;
+select * from usuario;
+
+select idempresa from empresa where nome = "Yokono";
+
+create table teste (
+idteste int primary key,
+nome varchar(45)
+);
+insert into teste (idteste, nome)
+(select
+1, nome
+ from empresa where idempresa = 1);
+ select * from teste;
+
+INSERT INTO usuario (nome, cpf, setor, cargo, email, senha, fkempresa)
+ (select
+ '${responsavel}', '${cpf}', '${setor}', '${cargo}', '${email}', '${senha}', idempresa
+        from empresa where nome = "Yokono");
+use sprint2;
+select * from medida;
