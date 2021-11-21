@@ -36,20 +36,20 @@ function cadastrar_usuario(responsavel, cpf, setor, cargo,  email, senha, nome) 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-// function cadastrar_caminhao(fkempresa, placa) {
-//     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar_caminhao():", fkempresa,placa);
-//     var instrucao = `
-//         INSERT INTO caminhao (placa, fkempresa)  VALUES 
-//         ('${placa}', '${fkempresa}');
-//     `;
-//     console.log("Executando a instrução SQL: \n" + instrucao);
-//     return database.executar(instrucao);
-// }
+function cadastrar_caminhao(fkempresa, placa) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar_caminhao():",placa, fkempresa);
+    var instrucao = `
+        INSERT INTO caminhao (placa, fkempresa)  VALUES 
+        ('${placa}', '${fkempresa}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 module.exports = {
     entrar,
     cadastrar_empresa,
     cadastrar_usuario,
     listar,
-    // cadastrar_caminhao,
+    cadastrar_caminhao
 };
