@@ -190,7 +190,7 @@ select * from dados inner join caminhao on fkcaminhao = idcaminhao;
 
     
 use sprint2;
-select dados.iddados, viagem.idviagem, dados.tempatual as Temperatura, dados.localizacao as GPS, dados.fkcaminhao as Caminhão, dados.datahora, 
+select dados.iddados, viagem.idviagem, dados.tempatual as Temperatura, dados.localizacao as GPS, viagem.fkcaminhao as Caminhão, dados.datahora, 
 viagem.datainicio, viagem.datafim
 from dados
 join caminhao on caminhao.idcaminhao = dados.fkcaminhao
@@ -222,4 +222,5 @@ INSERT INTO usuario (nome, cpf, setor, cargo, email, senha, fkempresa)
  '${responsavel}', '${cpf}', '${setor}', '${cargo}', '${email}', '${senha}', idempresa
         from empresa where nome = "Yokono");
 use sprint2;
-select * from medida;
+select * from dados;
+select * from caminhao;

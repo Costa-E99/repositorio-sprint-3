@@ -67,7 +67,7 @@
                     <div class="div-form">
                             <label>
                                 <h3>Cadastre seu caminhão:</h3>
-                                Placa: <input name="titulo" id="placa" maxlength="8" type="text" placeholder="AAA-0000" disabled>
+                                Placa: <input name="titulo" id="in_placa" maxlength="8" type="text" placeholder="AAA-0000" disabled>
                             </label>
                             <br>
                             <label>
@@ -75,7 +75,7 @@
                                 Nome: <input name="titulo" id="nome_prod" maxlength="45" type="text" placeholder="Morango, Leite..." disabled>
                                 <br>
                                 <br>
-                                Categoria: <input name="titulo" id="categoria" maxlength="45" type="text" placeholder="Fruta, Laticínio..." disabled>
+                                Categoria: <input name="titulo" id="in_categoria" maxlength="45" type="text" placeholder="Fruta, Laticínio..." disabled>
                             </label>
                             <br>
                             <label>
@@ -89,7 +89,7 @@
                             <br>
                             <br>
                             <div class="div_botoes_cadastro">
-                            <button onclick="cadastrar_caminhao()">Cadastre seu Caminhão</button>
+                            <button onclick="cadastrar_caminhaotela()">Cadastre seu Caminhão</button>
                             <button onclick="cadastrar_produto()">Cadastre seu Produto</button>
                             <button onclick="cadastrar_viagem()">Comece uma Viagem</button>
                             </div>
@@ -129,26 +129,159 @@
 
 
 
+
 </body>
 
 </html>
 
 <script>
-    function cadastrar_caminhao() {
-        var input = document.querySelector("#placa");
-        input.disabled = false;
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    // variaves para mudar o disabled das inputs
+    var lista_frutas=[]
+    var cheque_produto= false;
+    var cheque_caminhao= false;
+    var cheque_viagem= false;
+    function cadastrar_caminhaotela() {
+    
+        var placa = document.querySelector("#in_placa");
+        var produto = document.querySelector("#nome_prod");
+        var categoria = document.querySelector("#in_categoria");
+        var inicio_viagem = document.querySelector("#dt_inicio");
+        var fim_viagem = document.querySelector("#dt_chegada");
+        if(cheque_caminhao==false){
+        placa.disabled = false;
+        produto.disabled = true;
+        categoria.disabled = true;
+        inicio_viagem.disabled = true;
+        fim_viagem.disabled = true;
+        cheque_caminhao=true;}
+        else if(in_placa.value.length==7 ){
+            cadastrar_caminhao();
+            alert(`Caminhão ${in_placa.value} cadastrado com sucesso`)
+            placa.disabled=true
+            cheque_caminhao= false
+            placa.value= ''}
+            else if(in_placa.value.length< 7 && in_placa.value.length >1 ){
+                alert(`a placa precisa ter  7 digitos`)
+                cheque_caminhao = false
+        }else if(in_placa.value.length >7 ){
+            alert(`a placa precisa  ter 7 digitos`)
+
+        }else{
+            placa.disabled = true;
+            cheque_caminhao=false;
+        }
     }
     function cadastrar_produto() {
-        var input_2 = document.querySelector("#nome_prod");
-        var input_3 = document.querySelector("#categoria");
-        input_2.disabled = false;
-        input_3.disabled = false;
+        var placa = document.querySelector("#in_placa");
+        var produto = document.querySelector("#nome_prod");
+        var categoria = document.querySelector("#in_categoria");
+        var inicio_viagem = document.querySelector("#dt_inicio");
+        var fim_viagem = document.querySelector("#dt_chegada");
+        placa.disabled = true;
+        produto.disabled = false;
+        categoria.disabled = false;
+        inicio_viagem.disabled = true;
+        fim_viagem.disabled = true;
+        
+        if(cheque_produto== false){
+            placa.disabled = true;
+            produto.disabled = false;
+            categoria.disabled = false;
+            inicio_viagem.disabled = true;
+            fim_viagem.disabled = true;
+             cheque_produto= true;
+        }
+        else if(nome_prod.value.length>=3 && categoria.value.length>= 3){
+            alert(`Voce Cadastrou seu produto com sucesso`)
+            produto.disabled = true;
+            categoria.disabled = true;
+            cheque_produto= false
+            nome_prod.value= ``
+            in_categoria.value= `` 
+        }else if(nome_prod.value.length>=3 && categoria.value.length ==0)
+        {
+                alert(`informe o nome da categoria`)
+        }
+        else if(nome_prod.value.length==0 && categoria.value.length >3)
+        {
+                alert(`informe o nome do prouto`)
+        }
+        else if(nome_prod.value.length <=2 || categoria.value.length <=2){
+            alert(`expecificações dos produtos muitos pequenas`)
+        }
+        else{
+            produto.disabled = true;
+            categoria.disabled = true;
+            cheque_produto= false;
+        }
+      
+       
     }
     function cadastrar_viagem() {
-        var input_4 = document.querySelector("#dt_inicio");
-        var input_5 = document.querySelector("#dt_chegada");
-        input_4.disabled = false;
-        input_5.disabled = false;
+        var inicio = dt_inicio.value
+        var fim = dt_chegada.value
+        var placa = document.querySelector("#in_placa");
+        var produto = document.querySelector("#nome_prod");
+        var categoria = document.querySelector("#in_categoria");
+        var inicio_viagem = document.querySelector("#dt_inicio");
+        var fim_viagem = document.querySelector("#dt_chegada");
+
+        if(cheque_viagem==false){
+        placa.disabled = true;
+        produto.disabled = true;
+        categoria.disabled = true;
+        inicio_viagem.disabled = false;
+        fim_viagem.disabled = false;
+        cheque_viagem=true;
     }
+    else if(inicio.indexOf("/") > -1 || fim.indexOf("/")> -1 ){
+    alert(`não insira "/" nas datas utilize traços(-) ` )
+    }
+    else{
+        inicio_viagem.disabled = true;
+        fim_viagem.disabled = true;
+        cheque_viagem=false;
+        
+    }
+}
+function cadastrar_caminhao() {
+        // aguardar();
+
+        // var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+
+        
+        var placa= in_placa.value
+        var fkempresa = sessionStorage.getItem("FKEMPRESA");
+      
+        fetch("/usuarios/cadastrar_caminhao", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                placa: placa,
+                fkempresa: fkempresa,
+                
+                
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                window.location = "mural.html";
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+    }
+
 
 </script>
