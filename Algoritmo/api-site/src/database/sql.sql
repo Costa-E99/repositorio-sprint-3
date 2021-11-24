@@ -31,6 +31,9 @@ CREATE TABLE medida (
 create database sprint2;
 use sprint2;
 
+create user 'apoena'@'localhost' identified by 'Senha@123';
+grant insert, create, drop, select on adsc.* to 'apoena'@'localhost';
+flush privileges;
 
 create table empresa(
  idempresa int primary key auto_increment,
