@@ -4,7 +4,7 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
     instrucaoSql = `select 
                         tempatual,
                         datahora,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
+                        DATE_FORMAT(datahora,'%H:%i:%s') as momento_grafico
                     from dados
                     where fkcaminhao = ${idAquario}
                     order by iddados desc limit ${limite_linhas}`;
@@ -15,10 +15,10 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
 function buscarMedidasEmTempoReal(idAquario) {
     instrucaoSql = `select 
                         tempatual,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
+                        DATE_FORMAT(datahora,'%H:%i:%s') as momento_grafico, 
                         fkcaminhao 
                         from dados where fkcaminhao = ${idAquario} 
-                    order by id desc limit 1`;
+                    order by iddados desc limit 1`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

@@ -43,6 +43,46 @@ router.post('/sendData', (request, response) => {
         if(err) throw err;
         console.log("Medidas inseridas: " + result.affectedRows)
     });
+
+
+    temperatura = ArduinoData.ListTemp[ArduinoData.ListTemp.length - 1];
+    umidade = ArduinoData.List[ArduinoData.List.length - 1];
+
+    sql = "INSERT INTO dados(tempatual, datahora, localizacao, fkcaminhao) VALUES(?)";
+    values = [temperatura, data_agora, local[Math.floor(Math.random() * local.length)], 101];
+    console.log();
+    db.query(sql, [values], function(err, result){
+        if(err) throw err;
+        console.log("Medidas inseridas: " + result.affectedRows)
+    });
+
+
+    temperatura = ArduinoData.ListTemp[ArduinoData.ListTemp.length - 1];
+    umidade = ArduinoData.List[ArduinoData.List.length - 1];
+
+     sql = "INSERT INTO dados(tempatual, datahora, localizacao, fkcaminhao) VALUES(?)";
+    values = [temperatura, data_agora, local[Math.floor(Math.random() * local.length)], 102];
+    console.log();
+    db.query(sql, [values], function(err, result){
+        if(err) throw err;
+        console.log("Medidas inseridas: " + result.affectedRows)
+    });
+
+
+    temperatura = ArduinoData.ListTemp[ArduinoData.ListTemp.length - 1];
+    umidade = ArduinoData.List[ArduinoData.List.length - 1];
+
+
+    sql = "INSERT INTO dados(tempatual, datahora, localizacao, fkcaminhao) VALUES(?)";
+    values = [temperatura, data_agora, local[Math.floor(Math.random() * local.length)], 103];
+    console.log();
+    db.query(sql, [values], function(err, result){
+        if(err) throw err;
+        console.log("Medidas inseridas: " + result.affectedRows)
+    });
+
+
+
     response.sendStatus(200);
 })
 
