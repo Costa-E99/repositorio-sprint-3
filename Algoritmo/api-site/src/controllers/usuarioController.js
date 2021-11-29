@@ -121,11 +121,41 @@ function cadastrar_usuario(req, res) {
             );
     }
 }
+function cadastrar_caminhao(req, res) {
+    var placa = req.body.placa;
+    var fkempresa = req.body.fkempresa;
+   
+
+    if (fkempresa == undefined) {
+        res.status(400).send("fk empresa undefined!");
+    } else if (placa == undefined) {
+        res.status(400).send("sua placa está undefined!");
+    } else {
+        usuarioModel.cadastrar_caminhao(placa, fkempresa)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+
 
 module.exports = {
     entrar,
     cadastrar_empresa,
     cadastrar_usuario,
     listar,
+    cadastrar_caminhao,
     testar
 }

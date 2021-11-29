@@ -2,11 +2,11 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../imgs/logoApoena.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcquaTec | Dashboards</title>
+    <title>Apoena | Dashboards</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="dashboards.css">
@@ -22,7 +22,7 @@
 
 </head>
 
-<body onload="validarSessao(), atualizarFeed()">
+<body onload="validarSessao()">
     <!-- <body onload="validarSessao()"> -->
 
     <div class="janela">
@@ -35,7 +35,7 @@
 
             <div class="btn-nav-white">
                 <a href="./cards.html">
-                    <h3>Seus caminhões</h3>
+                    <h3>Seus Caminhões</h3>
                 </a>
             </div>
 
@@ -60,10 +60,10 @@
         <div class="dash">
             <div class="btns-dash">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <button class="btn-chart" onclick="obterDadosGrafico(1)">Aquario 1</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(2)">Aquario 2</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(3)">Aquario 3</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(4)">Aquario 4</button>
+                <button class="btn-chart" onclick="obterDadosGrafico(100)">Caminhão 1</button>
+                <button class="btn-chart" onclick="obterDadosGrafico(101)">Caminhão 2</button>
+                <button class="btn-chart" onclick="obterDadosGrafico(102)">Caminhão 3</button>
+                <button class="btn-chart" onclick="obterDadosGrafico(103)">Caminhão 4</button>
             </div>
             <div class="graph">
                 <canvas id="canvas_grafico"></canvas>
@@ -119,14 +119,6 @@ function plotarGrafico(resposta, idAquario) {
         labels: [],
         datasets: [
             {
-                yAxisID: 'y-umidade',
-                label: 'Umidade',
-                borderColor: '#32B9CD',
-                backgroundColor: '#32b9cd8f',
-                fill: true,
-                data: []
-            },
-            {
                 yAxisID: 'y-temperatura',
                 label: 'Temperatura',
                 borderColor: '#FFF',
@@ -140,8 +132,7 @@ function plotarGrafico(resposta, idAquario) {
     for (i = 0; i < resposta.length; i++) {
         var registro = resposta[i];
         dados.labels.push(registro.momento_grafico);
-        dados.datasets[0].data.push(registro.umidade);
-        dados.datasets[1].data.push(registro.temperatura);
+        dados.datasets[0].data.push(registro.tempatual);
     }
 
     console.log(JSON.stringify(dados));
@@ -170,20 +161,6 @@ function plotarGrafico(resposta, idAquario) {
                         max: 100,
                         min: 0
                     }
-                }, {
-                    type: 'linear',
-                    display: false,
-                    position: 'right',
-                    id: 'y-umidade', 
-                    ticks: {
-                        beginAtZero: true,
-                        max: 100,
-                        min: 0
-                    },
-
-                    gridLines: {
-                        drawOnChartArea: false,
-                    },
                 }],
             }
         }
@@ -207,9 +184,7 @@ function atualizarGrafico(idAquario, dados) {
                 dados.labels.shift(); // apagar o primeiro
                 dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
                 dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-                dados.datasets[1].data.shift();  // apagar o primeiro de umidade
-                dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de umidade
+                dados.datasets[0].data.push(novoRegistro[0].tempatual); // incluir uma nova medida de umidade
 
                 window.grafico_linha.update();
 

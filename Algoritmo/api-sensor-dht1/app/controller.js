@@ -30,17 +30,52 @@ router.get('/humidity', (request, response, next) => {
 });
 
 router.post('/sendData', (request, response) => {
+    let local = ['Sorocaba', 'São Paulo', 'Poá', 'Ribeirão Pires', 'Campos do Jordão', 'Vista Alegre', 'Avenida Paulista', 'Jardins', 'Oscar Freire', 'Faria Lima']
     temperatura = ArduinoData.ListTemp[ArduinoData.ListTemp.length - 1];
-    umidade = ArduinoData.List[ArduinoData.List.length - 1];
-
+    let temperaturaVar = 0;
+    if (temperatura == null) {
+        temperaturaVar = 0;
+    }else {
+        temperaturaVar = parseFloat(temperatura);
+    }
     let data_agora = new Date()
 
-    var sql = "INSERT INTO medida(temperatura, umidade, momento, fk_aquario) VALUES(?)";
-    values = [temperatura, umidade, data_agora, ((Math.random() * 3) + 1)];
+    var sql = "INSERT INTO dados(tempatual, datahora, localizacao, fkcaminhao) VALUES(?)";
+    values = [temperaturaVar*(Math.random()+0.5), data_agora, local[Math.floor(Math.random() * local.length)], 100];
+    console.log();
     db.query(sql, [values], function(err, result){
         if(err) throw err;
         console.log("Medidas inseridas: " + result.affectedRows)
     });
+
+    
+    sql = "INSERT INTO dados(tempatual, datahora, localizacao, fkcaminhao) VALUES(?)";
+    values = [temperaturaVar*(Math.random()+0.5), data_agora, local[Math.floor(Math.random() * local.length)], 101];
+    console.log();
+    db.query(sql, [values], function(err, result){
+        if(err) throw err;
+        console.log("Medidas inseridas: " + result.affectedRows)
+    });
+
+
+     sql = "INSERT INTO dados(tempatual, datahora, localizacao, fkcaminhao) VALUES(?)";
+     values = [temperaturaVar*(Math.random()+0.5), data_agora, local[Math.floor(Math.random() * local.length)], 102];
+    console.log();
+    db.query(sql, [values], function(err, result){
+        if(err) throw err;
+        console.log("Medidas inseridas: " + result.affectedRows)
+    });
+
+    
+    sql = "INSERT INTO dados(tempatual, datahora, localizacao, fkcaminhao) VALUES(?)";
+    values = [temperaturaVar*(Math.random()+0.5), data_agora, local[Math.floor(Math.random() * local.length)], 103];
+    console.log();
+    db.query(sql, [values], function(err, result){
+        if(err) throw err;
+        console.log("Medidas inseridas: " + result.affectedRows)
+    });
+    
+    
     response.sendStatus(200);
 })
 
