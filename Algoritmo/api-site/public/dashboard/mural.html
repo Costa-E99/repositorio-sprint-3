@@ -12,6 +12,9 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="./dashboards.css">
+
+    <script type='text/javascript' src='https://widget.freshworks.com/widgets/73000000599.js' async defer></script>
+
     <!-- 
         href="../assets/icon/favicon.ico"
         <script src="../js/funcoes.js"></script>
@@ -94,8 +97,8 @@
                             <br>
                             <div class="div_botoes_cadastro">
                             <button onclick="cadastrar_caminhaotela()">Cadastre seu Caminhão</button>
-                            <button onclick="iniciar_viagem()">Cadastre seu Produto</button>
-                            <button onclick="finalizar_viagem()">Comece uma Viagem</button>
+                            <button onclick="iniciar_viagem()">Inciar viagem</button>
+                            <button onclick="finalizar_viagem()">Finalizar viagem</button>
                             </div>
                         </form>
                     </div>
@@ -308,8 +311,9 @@ function cadastrar_caminhao() {
 
             console.log("resposta: ", resposta);
 
+
             if (resposta.ok) {
-                // window.alert("Cadastro realizado com sucesso!");
+                window.alert("Cadastro realizado com sucesso!");
                 // window.location = "mural.html";
                 // finalizarAguardar();
             } else {
@@ -323,4 +327,17 @@ function cadastrar_caminhao() {
 
     
     }
+
+</script>
+
+<script>
+    // HELP DESK ----------------------------------- //
+    
+	window.fwSettings={
+	'widget_id':73000000599
+	};
+	!function(){if("function"!=typeof window.FreshworksWidget){var n=function(){n.q.push(arguments)};n.q=[],window.FreshworksWidget=n}}() 
+
+    //-----------------------------------------------//
+// dc2c357377ace01ec0ac43fb96e5009b9b3c8517
 </script>

@@ -154,7 +154,7 @@ function cadastrar_viagem(req, res) {
     var placaviagem = req.body.placaviagem;
     
 
-    if (inicoproduto == undefined) {
+    if (inicioviagem == undefined) {
         res.status(400).send("inicio da viagem estpa indefinido");
     } else if (nomeproduto == undefined) {
         res.status(400).send("nome do produto está indefinido");
