@@ -71,18 +71,22 @@
                             </label>
                             <br>
                             <label>
-                                <h3>Cadastre seu Produto:</h3>
-                                Nome: <input name="titulo" id="nome_prod" maxlength="45" type="text" placeholder="Morango, Leite..." disabled>
+                                <h3>Inicie sua viagem</h3>
+                                Nome do produto: <input name="titulo" id="nome_prod" maxlength="45" type="text" placeholder="Morango, Leite..." disabled>
                                 <br>
                                 <br>
-                                Categoria: <input name="titulo" id="in_categoria" maxlength="45" type="text" placeholder="Fruta, Laticínio..." disabled>
+                                Placa do caminhão 
+                                que realizara a viagem: <input name="titulo" id="placaviagem" maxlength="45" type="text" placeholder="Fruta, Laticínio..." disabled> 
+                                <br>
+                                 <br>
+                                Data de inicio: <input name="titulo" id="dt_inicio" maxlength="45" type="text" placeholder="2021-11-29" disabled>
                             </label>
                             <br>
                             <label>
-                                <h3>Cadastre a data da viagem:</h3>
-                                Data de inicio: <input name="titulo" id="dt_inicio" maxlength="45" type="text" placeholder="2021-11-29" disabled>
-                                <br>
-                                <br>
+                                <h3>Cadastre a data final da viagem:</h3>
+                               numero de identificação da viagem 
+                               <input type="text" id="id" placeholder="viagem que voce já realizou"
+                               disabled>
                                 Data de chegada: <input name="titulo" id="dt_chegada" maxlength="45" type="text"
                                 placeholder="2021-11-04" disabled>
                             </label>
@@ -90,8 +94,8 @@
                             <br>
                             <div class="div_botoes_cadastro">
                             <button onclick="cadastrar_caminhaotela()">Cadastre seu Caminhão</button>
-                            <button onclick="cadastrar_produto()">Cadastre seu Produto</button>
-                            <button onclick="cadastrar_viagem()">Comece uma Viagem</button>
+                            <button onclick="iniciar_viagem()">Cadastre seu Produto</button>
+                            <button onclick="finalizar_viagem()">Comece uma Viagem</button>
                             </div>
                         </form>
                     </div>
@@ -110,7 +114,7 @@
     create table produto(
     idproduto int primary key auto_increment,
     nome varchar(45),
-    categoria varchar(45),
+    placaviagem varchar(45),
     tempmax decimal(4,2),
     tempmin decimal(4,2)
     ) auto_increment = 300;
@@ -145,13 +149,13 @@
     
         var placa = document.querySelector("#in_placa");
         var produto = document.querySelector("#nome_prod");
-        var categoria = document.querySelector("#in_categoria");
+        var placaviagem = document.querySelector("#placaviagem");
         var inicio_viagem = document.querySelector("#dt_inicio");
         var fim_viagem = document.querySelector("#dt_chegada");
         if(cheque_caminhao==false){
         placa.disabled = false;
         produto.disabled = true;
-        categoria.disabled = true;
+        placaviagem.disabled = true;
         inicio_viagem.disabled = true;
         fim_viagem.disabled = true;
         cheque_caminhao=true;}
@@ -172,66 +176,66 @@
             cheque_caminhao=false;
         }
     }
-    function cadastrar_produto() {
+
+
+    function iniciar_viagem() {
+        var nome = nome_prod.value
+        var viagem_placa= placaviagem.value
+        var iviagem = dt_inicio.value
+
         var placa = document.querySelector("#in_placa");
         var produto = document.querySelector("#nome_prod");
-        var categoria = document.querySelector("#in_categoria");
+        // var placaviagem = document.querySelector("#placaviagem");
         var inicio_viagem = document.querySelector("#dt_inicio");
         var fim_viagem = document.querySelector("#dt_chegada");
         placa.disabled = true;
         produto.disabled = false;
-        categoria.disabled = false;
-        inicio_viagem.disabled = true;
+        placaviagem.disabled = false;
+        inicio_viagem.disabled = false;
         fim_viagem.disabled = true;
         
         if(cheque_produto== false){
             placa.disabled = true;
             produto.disabled = false;
-            categoria.disabled = false;
-            inicio_viagem.disabled = true;
+            placaviagem.disabled = false;
+            inicio_viagem.disabled = false;
             fim_viagem.disabled = true;
              cheque_produto= true;
         }
-        else if(nome_prod.value.length>=3 && categoria.value.length>= 3){
-            alert(`Voce Cadastrou seu produto com sucesso`)
-            produto.disabled = true;
-            categoria.disabled = true;
-            cheque_produto= false
-            nome_prod.value= ``
-            in_categoria.value= `` 
-        }else if(nome_prod.value.length>=3 && categoria.value.length ==0)
-        {
-                alert(`informe o nome da categoria`)
+     
+        
+        
+        else {
+            produto.disabled= true;
+            placaviagem.disabled= true;
+            inicio_viagem.disabled= true;
+            cheque_produto = false;
+            cadastrar_viagem()
+            alert(`produto cadastrado`)
+
+
         }
-        else if(nome_prod.value.length==0 && categoria.value.length >3)
-        {
-                alert(`informe o nome do prouto`)
-        }
-        else if(nome_prod.value.length <=2 || categoria.value.length <=2){
-            alert(`expecificações dos produtos muitos pequenas`)
-        }
-        else{
-            produto.disabled = true;
-            categoria.disabled = true;
-            cheque_produto= false;
-        }
-      
+        
        
     }
-    function cadastrar_viagem() {
+
+
+
+
+    function finalizar_viagem() {
         var inicio = dt_inicio.value
         var fim = dt_chegada.value
         var placa = document.querySelector("#in_placa");
         var produto = document.querySelector("#nome_prod");
-        var categoria = document.querySelector("#in_categoria");
+        var placaviagem = document.querySelector("#placaviagem");
         var inicio_viagem = document.querySelector("#dt_inicio");
         var fim_viagem = document.querySelector("#dt_chegada");
 
         if(cheque_viagem==false){
         placa.disabled = true;
         produto.disabled = true;
-        categoria.disabled = true;
-        inicio_viagem.disabled = false;
+        placaviagem.disabled = true;
+        inicio_viagem.disabled = true;
         fim_viagem.disabled = false;
         cheque_viagem=true;
     }
@@ -240,7 +244,7 @@
     }
     else{
         inicio_viagem.disabled = true;
-        fim_viagem.disabled = true;
+   
         cheque_viagem=false;
         
     }
@@ -271,8 +275,8 @@ function cadastrar_caminhao() {
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                window.alert("Cadastro realizado com sucesso!");
-                window.location = "mural.html";
+                // window.alert("Cadastro realizado com sucesso!");
+                // window.location = "mural.html";
                 // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -282,6 +286,41 @@ function cadastrar_caminhao() {
             // finalizarAguardar();
         });
     }
+    function cadastrar_viagem() {
+        var inicioviagem = dt_inicio.value
+        var nomeproduto = nome_prod.value
+        var placaviagem1=  placaviagem.value
+
+        fetch("/usuarios/cadastrar_viagem", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                inicioviagem:inicioviagem,
+                nomeproduto:nomeproduto,
+                placaviagem:placaviagem1,
+                
+                
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // window.alert("Cadastro realizado com sucesso!");
+                // window.location = "mural.html";
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro da viagem!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
 
 
+    
+    }
 </script>

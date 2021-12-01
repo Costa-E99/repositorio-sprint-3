@@ -45,11 +45,22 @@ function cadastrar_caminhao(placa, fkempresa) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function cadastrar_viagem(inicioviagem, nomeproduto, placaviagem) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar_viagem():",inicioviagem,nomeproduto, placaviagem);
+    var instrucao = `
+        INSERT INTO viagem (datainicio, fkproduto,fkcamimhao)  VALUES 
+        ('${inicioviagem}', '${nomeproduto},${placaviagem}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 
 module.exports = {
     entrar,
     cadastrar_empresa,
     cadastrar_usuario,
     listar,
-    cadastrar_caminhao
+    cadastrar_caminhao,
+    cadastrar_viagem,
 };
