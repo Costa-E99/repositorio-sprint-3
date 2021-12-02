@@ -202,6 +202,7 @@ function fim_da_viagem(req, res) {
                         "\nHouve um erro ao realizar o cadastro! Erro: ",
                         erro.sqlMessage
                     );
+                    alert("Dados inválidos!")
                     res.status(500).json(erro.sqlMessage);
                 }
             );

@@ -209,18 +209,41 @@
             fim_viagem.disabled = true;
              cheque_produto= true;
         }
-     
+            else if(nome.trim().length <= 0 && viagem_placa.trim().length >=1){
+                alert('insira o nome do seu produto')
+            }
+            else if(nome.trim().length <= 0 && iviagem.trim().length >=1){
+                alert('insira o nome do seu produto')
+            }
+            else if(iviagem.trim().length==0 && nome.trim().length>=1){
+                alert('insira a data de inicio da sua viagem')
+            }  
+            
+            else if(iviagem.trim().length==0 && viagem_placa.trim().length>=1){
+                alert('insira a data de inicio da sua viagem')
+            }
+            else if(viagem_placa.trim().length == 0 && iviagem.trim().length >=1 ){
+                alert( 'insira do caminhão que realizara a viagem')
+            }
+            else if(viagem_placa.trim().length == 0 && nome.trim().length >=1 ){
+                alert( 'insira do caminhão que realizara a viagem')
+            }
+            
         
         
-        else {
+        else if ( nome.trim().length<=0 && viagem_placa.trim().length<=0 && iviagem.trim().length<= 0)  {
             produto.disabled= true;
             placaviagem.disabled= true;
             inicio_viagem.disabled= true;
             cheque_produto = false;
+
+            // alert(`produto cadastrado`)
+        }
+        else{
             cadastrar_viagem()
-            alert(`produto cadastrado`)
-
-
+            nome= ``
+            viagem_placa=``
+            inicio_viagem=``
         }
         
        
@@ -256,7 +279,7 @@
         id_viagem.disabled= true
         fim_da_viagem()
         cheque_viagem=false;
-        alert(` viagem finalizada com sucesso`)
+        // alert(` viagem finalizada com sucesso`);
         
     }
 }
@@ -326,8 +349,10 @@ function cadastrar_caminhao() {
                 // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro da viagem!");
+              
             }
         }).catch(function (resposta) {
+            alert(`problemas ao iniciar a sua viagem`)
             console.log(`#ERRO: ${resposta}`);
             // finalizarAguardar();
         });
