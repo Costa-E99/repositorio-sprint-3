@@ -153,10 +153,17 @@
     var cheque_caminhao= false;
     var cheque_viagem= false;
     function cadastrar_caminhaotela() {
+        nome_prod.value= ''
+        placaviagem.value= ''
+        dt_chegada.value= ''
+        dt_inicio.value= ''
+        id_viagem.value = ''
+        cheque_produto= false;
+        cheque_viagem= false;;
     
         var placa = document.querySelector("#in_placa");
         var produto = document.querySelector("#nome_prod");
-        var placaviagem = document.querySelector("#placaviagem");
+        var placaviagem1 = document.querySelector("#placaviagem");
         var inicio_viagem = document.querySelector("#dt_inicio");
         var fim_viagem = document.querySelector("#dt_chegada");
         if(cheque_caminhao==false){
@@ -167,6 +174,7 @@
         fim_viagem.disabled = true;
         id_viagem.disabled= true;
         cheque_caminhao=true;}
+        
         else if(in_placa.value.length==7 ){
             cadastrar_caminhao();
             alert(`Caminhão ${in_placa.value} cadastrado com sucesso`)
@@ -187,15 +195,19 @@
 
 
     function iniciar_viagem() {
+        cheque_caminhao=false;
+cheque_viagem= false;
         var nome = nome_prod.value
         var viagem_placa= placaviagem.value
         var iviagem = dt_inicio.value
-
         var placa = document.querySelector("#in_placa");
         var produto = document.querySelector("#nome_prod");
-        // var placaviagem = document.querySelector("#placaviagem");
         var inicio_viagem = document.querySelector("#dt_inicio");
         var fim_viagem = document.querySelector("#dt_chegada");
+        dt_chegada.value= ''
+        id_viagem.value = ''
+        in_placa.value= ''
+        
         placa.disabled = true;
         produto.disabled = false;
         placaviagem.disabled = false;
@@ -204,11 +216,11 @@
         id_viagem.disabled= true;
         
         if(cheque_produto== false){
-            placa.disabled = true;
+            // placa.disabled = true;
             produto.disabled = false;
             placaviagem.disabled = false;
             inicio_viagem.disabled = false;
-            fim_viagem.disabled = true;
+            // fim_viagem.disabled = true;
              cheque_produto= true;
         }
             else if(nome.trim().length <= 0 && viagem_placa.trim().length >=1){
@@ -256,14 +268,28 @@
 
 
     function finalizar_viagem() {
+        cheque_produto= false;
+         cheque_caminhao= false;
+         nome_prod.value= ''
+        placaviagem.value= ''
+        dt_inicio.value= ''
+        
+        
+
         var idviagem= id_viagem.value
         var inicio = dt_inicio.value
         var fim = dt_chegada.value
         var placa = document.querySelector("#in_placa");
         var produto = document.querySelector("#nome_prod");
-        var placaviagem = document.querySelector("#placaviagem");
+        var placaviagem1= document.querySelector("#placaviagem");
         var inicio_viagem = document.querySelector("#dt_inicio");
         var fim_viagem = document.querySelector("#dt_chegada");
+        id_viagem.disabled= false
+        placa.disabled = true;
+        produto.disabled = true;
+        placaviagem.disabled = true;
+        inicio_viagem.disabled = true;
+        fim_viagem.disabled = false;
 
         if(cheque_viagem==false){
         id_viagem.disabled= false
