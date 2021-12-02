@@ -46,13 +46,42 @@ function cadastrar_caminhao(placa, fkempresa) {
     return database.executar(instrucao);
 }
 function cadastrar_viagem(inicioviagem, nomeproduto, placaviagem) {
+
+    // console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar_viagem():",inicioviagem,nomeproduto, placaviagem);
+    // var instrucao = `
+    // select idproduto from produto where nome= '${nomeproduto}'
+    // `;
+    // console.log("Executando a instrução SQL: \n" + instrucao);
+    // return database.executar(instrucao);
+    
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar_viagem():",inicioviagem,nomeproduto, placaviagem);
     var instrucao = `
-        INSERT INTO viagem (datainicio, fkproduto, fkcamimhao)  VALUES 
-        ('${inicioviagem}', '${nomeproduto}','${placaviagem}');
+    insert into  viagem (datainicio, fkproduto, fkcaminhao) values (
+        '${inicioviagem}', (select idproduto from produto where nome= '${nomeproduto}'), (select idcaminhao from caminhao where placa= '${placaviagem}'));
+        
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
+
+
+}
+
+function fim_da_viagem(idviagem,fim_viagem) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function fim_da_viagem():",idviagem,fim_viagem);
+    var instrucao = `
+    update viagem set datafim = '${fim_viagem}' where idviagem= '${idviagem}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+
+
+    
+    // instrucao = `
+    // update viagem set fkproduto= (select idproduto from produto where nome= 'Uva')   
+    // where idviagem = (select idviagem from viagem as v order by idviagem desc limit 1)  ;
+    // `;
+    // console.log("Executando a instrução SQL: \n" + instrucao);
+    // return database.executar(instrucao);
 }
 
 
@@ -62,5 +91,6 @@ module.exports = {
     cadastrar_usuario,
     listar,
     cadastrar_caminhao,
-    cadastrar_viagem
+    cadastrar_viagem,
+    fim_da_viagem
 };

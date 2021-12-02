@@ -1,7 +1,10 @@
 body {
   background: linear-gradient(91.45deg, #050d14 0.66%, #0e1e29 98.24%);
-  font-family: 'montserrat';
-  color: white;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: 'Alata';
+  color: #fff;
 }
 
 .header {
@@ -102,7 +105,7 @@ form {
 
 /* ----------- NOME /\ CPF /\ CNPJ --------------- */
 .box-2 {
-  background: red;
+  /*background: red;*/
   align-self: center;
   padding: 4%;
 }
@@ -111,7 +114,7 @@ form {
 
 /* ----------- RESPONSAVEL /\ CARGO /\ SETOR /\ EMAIL --------------- */
 .box-3 {
-  background: lime;
+  /*background: lime;*/
   align-self: center;
   padding: 4%;
 }
@@ -120,7 +123,7 @@ form {
 
 /* ----------- SENHA /\ CONFIRMAR --------------- */
 .box-4 {
-  background: black;
+  /*background: black;*/
   display: flex;
   align-items: center;
   justify-content: center;

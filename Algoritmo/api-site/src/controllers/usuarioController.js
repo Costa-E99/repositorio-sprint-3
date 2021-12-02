@@ -180,6 +180,33 @@ function cadastrar_viagem(req, res) {
     }
 }
 
+function fim_da_viagem(req, res) {
+    var idviagem = req.body.idviagem;
+    var fim_viagem = req.body.fim_viagem;
+   
+
+    if (idviagem == undefined) {
+        res.status(400).send("id da viagem está indefinido");
+    } else if (fim_viagem == undefined) {
+        res.status(400).send("sua placa está undefined!");
+    } else {
+        usuarioModel.fim_da_viagem(idviagem, fim_viagem)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
 
 
 
@@ -190,5 +217,6 @@ module.exports = {
     listar,
     cadastrar_caminhao,
     cadastrar_viagem,
-    testar
+    testar,
+    fim_da_viagem
 }
