@@ -54,6 +54,9 @@
                         <h3>Gerenciar viagens</h3>
                     </a>
                 </div>
+                <div  class="btn-nav">
+                   <button class="btnproduto" onclick="produtos()"> Produtos Cadastrados </button>
+                </div>
     
                 <div class="btn-logout" onclick="limparSessao()">
                     <h3>Sair</h3>
@@ -68,6 +71,7 @@
                 <div class="container">
                     <h1>Cadastrar caminhão</h1>
                     <div class="div-form">
+                        
                             <label>
                                 <h3>Cadastre seu caminhão:</h3>
                                 Placa: <input name="titulo" id="in_placa" maxlength="8" type="text" placeholder="AAA-0000" disabled>
@@ -75,22 +79,22 @@
                             <br>
                             <label>
                                 <h3>Inicie sua viagem</h3>
-                                Nome do produto: <input name="titulo" id="nome_prod" maxlength="45" type="text" placeholder="Morango, Leite..." disabled>
+                                Nome do produto: <input name="nome_prod" id="nome_prod" maxlength="45" type="text" placeholder="Morango, Leite..." disabled>
                                 <br>
                                 <br>
                                 Placa do caminhão 
-                                que realizara a viagem: <input name="titulo" id="placaviagem" maxlength="45" type="text" placeholder="Fruta, Laticínio..." disabled> 
+                                que realizara a viagem: <input name="placaviagem" id="placaviagem" maxlength="45" type="text" placeholder="Fruta, Laticínio..." disabled> 
                                 <br>
                                  <br>
-                                Data de inicio: <input name="titulo" id="dt_inicio" maxlength="45" type="text" placeholder="2021-11-29" disabled>
+                                Data de inicio: <input name="dt_inicio" id="dt_inicio" maxlength="45" type="date" placeholder="2021-11-29" disabled>
                             </label>
                             <br>
                             <label>
-                                <h3>Cadastre a data final da viagem:</h3>
+                                <h3>Finalize sua viagem</h3>
                                numero de identificação da viagem 
-                               <input type="text" id="id" placeholder="viagem que voce já realizou"
+                               <input type="text" id="id_viagem" placeholder="viagem que voce já realizou"
                                disabled>
-                                Data de chegada: <input name="titulo" id="dt_chegada" maxlength="45" type="text"
+                                Data de chegada: <input name="titulo" id="dt_chegada" maxlength="45" type="date"
                                 placeholder="2021-11-04" disabled>
                             </label>
                             <br>
@@ -226,6 +230,7 @@
 
 
     function finalizar_viagem() {
+        var idviagem= id_viagem.value
         var inicio = dt_inicio.value
         var fim = dt_chegada.value
         var placa = document.querySelector("#in_placa");
@@ -235,6 +240,7 @@
         var fim_viagem = document.querySelector("#dt_chegada");
 
         if(cheque_viagem==false){
+        id_viagem.disabled= false
         placa.disabled = true;
         produto.disabled = true;
         placaviagem.disabled = true;
@@ -246,9 +252,11 @@
     alert(`não insira "/" nas datas utilize traços(-) ` )
     }
     else{
-        inicio_viagem.disabled = true;
-   
+        fim_viagem.disabled = true;
+        id_viagem.disabled= true
+        fim_da_viagem()
         cheque_viagem=false;
+        alert(` viagem finalizada com sucesso`)
         
     }
 }
@@ -313,7 +321,7 @@ function cadastrar_caminhao() {
 
 
             if (resposta.ok) {
-                window.alert("Cadastro realizado com sucesso!");
+                window.alert("Cadastro da viagem realizado com sucesso!");
                 // window.location = "mural.html";
                 // finalizarAguardar();
             } else {
@@ -327,6 +335,41 @@ function cadastrar_caminhao() {
 
     
     }
+    function fim_da_viagem(){
+        var idviagem= id_viagem.value
+        var fim_viagem= dt_chegada.value
+
+        fetch("/usuarios/fim_da_viagem", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idviagem: idviagem,
+                fim_viagem: fim_viagem,                
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+
+            if (resposta.ok) {
+                window.alert("Viagem finalizada com sucesso!");
+                // window.location = "mural.html";
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar finalizar a viagem!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+
+    
+    }   
+    
 
 </script>
 

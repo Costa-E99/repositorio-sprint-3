@@ -26,8 +26,13 @@ router.post("/autenticar", function (req, res) {
 router.post("/cadastrar_caminhao", function (req, res) {
     usuarioController.cadastrar_caminhao(req, res);
 })
-router.post("cadastrar_viagem", function (req, res) {
+
+router.post("/cadastrar_viagem", function (req, res) {
     usuarioController.cadastrar_viagem(req, res);
+})
+
+router.post("/fim_da_viagem", function (req, res) {
+    usuarioController.fim_da_viagem(req, res);
 })
 
 
