@@ -165,6 +165,7 @@
         placaviagem.disabled = true;
         inicio_viagem.disabled = true;
         fim_viagem.disabled = true;
+        id_viagem.disabled= true;
         cheque_caminhao=true;}
         else if(in_placa.value.length==7 ){
             cadastrar_caminhao();
@@ -200,6 +201,7 @@
         placaviagem.disabled = false;
         inicio_viagem.disabled = false;
         fim_viagem.disabled = true;
+        id_viagem.disabled= true;
         
         if(cheque_produto== false){
             placa.disabled = true;
@@ -244,6 +246,7 @@
             nome= ``
             viagem_placa=``
             inicio_viagem=``
+            
         }
         
        
@@ -274,11 +277,24 @@
     else if(inicio.indexOf("/") > -1 || fim.indexOf("/")> -1 ){
     alert(`não insira "/" nas datas utilize traços(-) ` )
     }
-    else{
+    else if(idviagem.length <= 0 && fim_viagem.length >=1){
+        alert(' insira o id da sua viagem')
+    }else if(fim.length <= 0 && id_viagem.value.length >=1){
+        alert(' insira o id da sua viagem')
+    }
+    else if( fim.length<=0 && idviagem.length <=0){
         fim_viagem.disabled = true;
-        id_viagem.disabled= true
-        fim_da_viagem()
+        id_viagem.disabled= true;
         cheque_viagem=false;
+
+    }
+    else{
+        // fim_viagem.disabled = true;
+        // id_viagem.disabled= true
+        fim_da_viagem()
+        fim=''
+        idviagem= ''
+         
         // alert(` viagem finalizada com sucesso`);
         
     }
