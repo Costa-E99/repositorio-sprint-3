@@ -1,40 +1,50 @@
 body {
-    background: linear-gradient(91.45deg, #050D14 0.66%, #0E1E29 98.24%); font-family: 'montserrat';
+    background: linear-gradient(91.45deg, #050D14 0.66%, #0E1E29 98.24%);   
+    margin: 0;
+    padding: 0;
+    font-family: 'Alata';
+    color: #fff;
 }
 
-.header{
+/*-------------cabeçalho--------------*/
+h1  {
+    color: white;
+}
+
+.header {
     background: #031727;
     border-bottom: #094373 solid 3px;
-}
-
-.titulo {
+    font-family: 'Montserrat';
+  }
+  
+  .titulo {
     font-weight: 600;
-   
-}
-h1{color: white;}
-.agora {
+  }
+  .agora {
     font-weight: 450;
-}
-
-.container {
+  }
+  
+  .container {
     width: 90%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.navbar {
+  }
+  
+  .navbar {
     list-style: none;
     display: flex;
     color: rgb(210, 210, 255);
     justify-content: space-evenly;
     width: 400px;
-}
-.navbar a{
+  }
+  .navbar a {
     color: rgb(210, 210, 255);
     text-decoration: none;
-}
+  }
+
+/*------------- Final cabeçalho--------------*/
 .div_1 {
     background:  linear-gradient(91.97deg, #041D31 1.18%, #051726 46.97%, #037F8C 98.85%);
     border-radius: 35px;
