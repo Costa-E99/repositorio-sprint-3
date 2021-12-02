@@ -50,7 +50,7 @@ router.post('/sendData', (request, response) => {
 
     
     sql = "INSERT INTO dados(tempatual, datahora, localizacao, fkcaminhao) VALUES(?)";
-    values = [temperaturaVar*(Math.random()+0.5), data_agora, local[Math.floor(Math.random() * local.length)], 101];
+    values = [temperaturaVar*(Math.random()-0.3), data_agora, local[Math.floor(Math.random() * local.length)], 101];
     console.log();
     db.query(sql, [values], function(err, result){
         if(err) throw err;
@@ -59,7 +59,7 @@ router.post('/sendData', (request, response) => {
 
 
      sql = "INSERT INTO dados(tempatual, datahora, localizacao, fkcaminhao) VALUES(?)";
-     values = [temperaturaVar*(Math.random()+0.5), data_agora, local[Math.floor(Math.random() * local.length)], 102];
+     values = [temperaturaVar*(Math.random()), data_agora, local[Math.floor(Math.random() * local.length)], 102];
     console.log();
     db.query(sql, [values], function(err, result){
         if(err) throw err;
@@ -68,7 +68,7 @@ router.post('/sendData', (request, response) => {
 
     
     sql = "INSERT INTO dados(tempatual, datahora, localizacao, fkcaminhao) VALUES(?)";
-    values = [temperaturaVar*(Math.random()+0.5), data_agora, local[Math.floor(Math.random() * local.length)], 103];
+    values = [temperaturaVar*(Math.random()), data_agora, local[Math.floor(Math.random() * local.length)], 103];
     console.log();
     db.query(sql, [values], function(err, result){
         if(err) throw err;

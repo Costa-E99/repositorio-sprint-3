@@ -16,8 +16,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    
-        <script type='text/javascript' src='https://widget.freshworks.com/widgets/72000000689.js' async defer></script>
+
+    <script type='text/javascript' src='https://widget.freshworks.com/widgets/72000000689.js' async defer></script>
 </head>
 
 <body onload="validarSessao(), atualizacaoPeriodica()">
@@ -125,7 +125,7 @@
         obterdados(101);
         obterdados(102);
         obterdados(103);
-        setTimeout(atualizacaoPeriodica, 2000);
+        setTimeout(atualizacaoPeriodica, 5000);
     }
 
     function obterdados(idAquario) {
@@ -154,49 +154,139 @@
     }
 
     function alertar(temperatura, idAquario) {
-        var limites = {
-            muito_quente: 25,
-            quente: 22,
-            ideal: 20,
-            frio: 10,
-            muito_frio: 5
+        var limiteMorango = {
+            muito_quente: 26.00,
+            quente: 22.75,
+            ideal: 19.50,
+            frio: 16.25,
+            muito_frio: 13.00
+        };
+        var limiteLeite = {
+            muito_quente: 9.00,
+            quente: 8.50,
+            ideal: 8.00,
+            frio: 7.50,
+            muito_frio: 7.00
+        };
+        var limiteVinho = {
+            muito_quente: 19.00,
+            quente: 17.75,
+            ideal: 16.50,
+            frio: 15.25,
+            muito_frio: 15.00
         };
 
         var classe_temperatura = 'cor-alerta';
 
-        if (temperatura >= limites.muito_quente) {
-            classe_temperatura = 'cor-alerta perigo-quente';
-            console.log("caiu no 1")
-        }
-        else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
-            classe_temperatura = 'cor-alerta alerta-quente';
-            console.log("caiu no 2")
-        }
-        else if (temperatura < limites.quente && temperatura > limites.frio) {
-            classe_temperatura = 'cor-alerta ideal';
-            console.log("caiu no 3")
-        }
-        else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
-            classe_temperatura = 'cor-alerta alerta-frio';
-            console.log("caiu no 4")
-        }
-        else if (temperatura < limites.min_temperatura) {
-            classe_temperatura = 'cor-alerta perigo-frio';
-            console.log("caiu no 5")
-        }
+        // if (temperatura >= limites.muito_quente) {
+        //     classe_temperatura = 'cor-alerta perigo-quente';
+        //     console.log("caiu no 1")
+        // }
+        // else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
+        //     classe_temperatura = 'cor-alerta alerta-quente';
+        //     console.log("caiu no 2")
+        // }
+        // else if (temperatura < limites.quente && temperatura > limites.frio) {
+        //     classe_temperatura = 'cor-alerta ideal';
+        //     console.log("caiu no 3")
+        // }
+        // else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
+        //     classe_temperatura = 'cor-alerta alerta-frio';
+        //     console.log("caiu no 4")
+        // }
+        // else if (temperatura < limites.min_temperatura) {
+        //     classe_temperatura = 'cor-alerta perigo-frio';
+        //     console.log("caiu no 5")
+        // }
 
         var card;
 
         if (idAquario == 100) {
+            if (temperatura >= limiteMorango.muito_quente) {
+                classe_temperatura = 'cor-alerta perigo-quente';
+                console.log("caiu no 1")
+            } else if (temperatura < limiteMorango.muito_quente && temperatura >= limiteMorango.quente) {
+                classe_temperatura = 'cor-alerta alerta-quente';
+                console.log("caiu no 2")
+            }else if (temperatura < limiteMorango.quente && temperatura >= limiteMorango.frio) {
+                classe_temperatura = 'cor-alerta ideal';
+                console.log("caiu no 3")
+            }else if (temperatura <= limiteMorango.frio && temperatura >= limiteMorango.muito_frio) {
+                classe_temperatura = 'cor-alerta alerta-frio';
+                console.log("caiu no 4")
+            }else if (temperatura <= limiteMorango.min_temperatura) {
+                classe_temperatura = 'cor-alerta perigo-frio';
+                console.log("caiu no 5")
+            }
             temp_aquario_1.innerHTML = temperatura + "°C";
             card = card_1
         } else if (idAquario == 101) {
+            if (temperatura >= limiteLeite.muito_quente) {
+                classe_temperatura = 'cor-alerta perigo-quente';
+                console.log("caiu no 1")
+            }
+            else if (temperatura < limiteLeite.muito_quente && temperatura >= limiteLeite.quente) {
+                classe_temperatura = 'cor-alerta alerta-quente';
+                console.log("caiu no 2")
+            }
+            else if (temperatura < limiteLeite.quente && temperatura >+ limiteLeite.frio) {
+                classe_temperatura = 'cor-alerta ideal';
+                console.log("caiu no 3")
+            }
+            else if (temperatura <= limiteLeite.frio && temperatura >+ limiteLeite.muito_frio) {
+                classe_temperatura = 'cor-alerta alerta-frio';
+                console.log("caiu no 4")
+            }
+            else if (temperatura <+ limiteLeite.min_temperatura) {
+                classe_temperatura = 'cor-alerta perigo-frio';
+                console.log("caiu no 5")
+            }
             temp_aquario_2.innerHTML = temperatura + "°C";
             card = card_2
         } else if (idAquario == 102) {
+            if (temperatura >= limiteVinho.muito_quente) {
+                classe_temperatura = 'cor-alerta perigo-quente';
+                console.log("caiu no 1")
+            }
+            else if (temperatura < limiteVinho.muito_quente && temperatura >= limiteVinho.quente) {
+                classe_temperatura = 'cor-alerta alerta-quente';
+                console.log("caiu no 2")
+            }
+            else if (temperatura < limiteVinho.quente && temperatura >= limiteVinho.frio) {
+                classe_temperatura = 'cor-alerta ideal';
+                console.log("caiu no 3")
+            }
+            else if (temperatura <= limiteVinho.frio && temperatura >= limiteVinho.muito_frio) {
+                classe_temperatura = 'cor-alerta alerta-frio';
+                console.log("caiu no 4")
+            }
+            else if (temperatura <= limiteVinho.min_temperatura) {
+                classe_temperatura = 'cor-alerta perigo-frio';
+                console.log("caiu no 5")
+            }
             temp_aquario_3.innerHTML = temperatura + "°C";
             card = card_3
         } else if (idAquario == 103) {
+            if (temperatura >= limiteVinho.muito_quente) {
+                classe_temperatura = 'cor-alerta perigo-quente';
+                console.log("caiu no 1")
+            }
+            else if (temperatura < limiteVinho.muito_quente && temperatura >= limiteVinho.quente) {
+                classe_temperatura = 'cor-alerta alerta-quente';
+                console.log("caiu no 2")
+            }
+            else if (temperatura < limiteVinho.quente && temperatura >= limiteVinho.frio) {
+                classe_temperatura = 'cor-alerta ideal';
+                console.log("caiu no 3")
+            }
+            else if (temperatura <= limiteVinho.frio && temperatura >= limiteVinho.muito_frio) {
+                classe_temperatura = 'cor-alerta alerta-frio';
+                console.log("caiu no 4")
+            }
+            else if (temperatura <= limiteVinho.min_temperatura) {
+                classe_temperatura = 'cor-alerta perigo-frio';
+                console.log("caiu no 5")
+            }
             temp_aquario_4.innerHTML = temperatura + "°C";
             card = card_4
         }
@@ -210,13 +300,13 @@
 
 <script>
     // HELP DESK ----------------------------------- //
-  
-        window.fwSettings={
-        'widget_id':72000000689
-        };
-        !function(){if("function"!=typeof window.FreshworksWidget){var n=function(){n.q.push(arguments)};n.q=[],window.FreshworksWidget=n}}()  
-  
+
+    window.fwSettings = {
+        'widget_id': 72000000689
+    };
+    !function () { if ("function" != typeof window.FreshworksWidget) { var n = function () { n.q.push(arguments) }; n.q = [], window.FreshworksWidget = n } }()
+
     //-----------------------------------------------//
-    </script>
+</script>
 
 </html>
