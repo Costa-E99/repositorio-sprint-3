@@ -20,7 +20,7 @@
         <script type='text/javascript' src='https://widget.freshworks.com/widgets/72000000689.js' async defer></script>
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(), atualizacaoPeriodica()">
 
     <div class="janela">
 
@@ -121,11 +121,11 @@
 <script>
 
     function atualizacaoPeriodica() {
-        obterdados(1);
-        obterdados(2);
-        obterdados(3);
-        obterdados(4);
-        setTimeout(atualizacaoPeriodica, 5000);
+        obterdados(100);
+        obterdados(101);
+        obterdados(102);
+        obterdados(103);
+        setTimeout(atualizacaoPeriodica, 2000);
     }
 
     function obterdados(idAquario) {
@@ -138,10 +138,10 @@
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
                         var dados = {
-                            temperatura: resposta[0].temperatura,
+                            temperatura: resposta[0].tempatual,
                         }
 
-                        alertar(resposta[0].temperatura, idAquario);
+                        alertar(resposta[0].tempatual, idAquario);
                     });
                 } else {
 
@@ -187,16 +187,16 @@
 
         var card;
 
-        if (idAquario == 1) {
+        if (idAquario == 100) {
             temp_aquario_1.innerHTML = temperatura + "°C";
             card = card_1
-        } else if (idAquario == 2) {
+        } else if (idAquario == 101) {
             temp_aquario_2.innerHTML = temperatura + "°C";
             card = card_2
-        } else if (idAquario == 3) {
+        } else if (idAquario == 102) {
             temp_aquario_3.innerHTML = temperatura + "°C";
             card = card_3
-        } else if (idAquario == 4) {
+        } else if (idAquario == 103) {
             temp_aquario_4.innerHTML = temperatura + "°C";
             card = card_4
         }

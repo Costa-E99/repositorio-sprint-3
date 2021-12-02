@@ -15,8 +15,6 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
 function buscarMedidasEmTempoReal(idAquario) {
     instrucaoSql = `select 
                         tempatual,
-                        DATE_FORMAT(datahora,'%H:%i:%s') as momento_grafico, 
-                        fkcaminhao 
                         from dados where fkcaminhao = ${idAquario} 
                     order by iddados desc limit 1`;
 
