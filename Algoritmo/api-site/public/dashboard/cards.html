@@ -211,10 +211,10 @@
             }else if (temperatura < limiteMorango.quente && temperatura >= limiteMorango.frio) {
                 classe_temperatura = 'cor-alerta ideal';
                 console.log("caiu no 3")
-            }else if (temperatura <= limiteMorango.frio && temperatura >= limiteMorango.muito_frio) {
+            }else if (temperatura < limiteMorango.frio && temperatura >= limiteMorango.muito_frio) {
                 classe_temperatura = 'cor-alerta alerta-frio';
                 console.log("caiu no 4")
-            }else if (temperatura <= limiteMorango.min_temperatura) {
+            }else if (temperatura < limiteMorango.muito_frio) {
                 classe_temperatura = 'cor-alerta perigo-frio';
                 console.log("caiu no 5")
             }
@@ -229,15 +229,15 @@
                 classe_temperatura = 'cor-alerta alerta-quente';
                 console.log("caiu no 2")
             }
-            else if (temperatura < limiteLeite.quente && temperatura >+ limiteLeite.frio) {
+            else if (temperatura < limiteLeite.quente && temperatura >= limiteLeite.frio) {
                 classe_temperatura = 'cor-alerta ideal';
                 console.log("caiu no 3")
             }
-            else if (temperatura <= limiteLeite.frio && temperatura >+ limiteLeite.muito_frio) {
+            else if (temperatura <= limiteLeite.frio && temperatura >= limiteLeite.muito_frio) {
                 classe_temperatura = 'cor-alerta alerta-frio';
                 console.log("caiu no 4")
             }
-            else if (temperatura <+ limiteLeite.min_temperatura) {
+            else if (temperatura <= limiteLeite.muito_frio) {
                 classe_temperatura = 'cor-alerta perigo-frio';
                 console.log("caiu no 5")
             }
@@ -260,7 +260,7 @@
                 classe_temperatura = 'cor-alerta alerta-frio';
                 console.log("caiu no 4")
             }
-            else if (temperatura <= limiteVinho.min_temperatura) {
+            else if (temperatura <= limiteVinho.muito_frio) {
                 classe_temperatura = 'cor-alerta perigo-frio';
                 console.log("caiu no 5")
             }
@@ -283,7 +283,7 @@
                 classe_temperatura = 'cor-alerta alerta-frio';
                 console.log("caiu no 4")
             }
-            else if (temperatura <= limiteVinho.min_temperatura) {
+            else if (temperatura <= limiteVinho.muito_frio) {
                 classe_temperatura = 'cor-alerta perigo-frio';
                 console.log("caiu no 5")
             }
