@@ -83,6 +83,7 @@ a {
   height: 200px;
   width: 150px;
 }
+
 .banner .container .dir {
   background-image: url(../imgs/caminhãov2.png);
   background-size: 100%;
@@ -90,6 +91,7 @@ a {
   width: 80%;
   height: 450px;
   display: flex;
+ 
 }
 
 .sp_dia {
