@@ -14,9 +14,9 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
 
 function buscarMedidasEmTempoReal(idAquario) {
     instrucaoSql = `select 
-                        tempatual,
+                        tempatual
                         from dados where fkcaminhao = ${idAquario} 
-                    order by iddados desc limit 1`;
+                    order by iddados desc limit 1;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
