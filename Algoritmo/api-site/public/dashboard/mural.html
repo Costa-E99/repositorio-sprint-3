@@ -72,34 +72,65 @@
                     <h1>Cadastrar caminhão</h1>
                     <div class="div-form">
                         
+                        <div class="div_labels">
                             <label>
                                 <h3>Cadastre seu caminhão:</h3>
-                                Placa: <input name="titulo" id="in_placa" maxlength="8" type="text" placeholder="AAA-0000" disabled>
+                                Placa:
+                                <br> 
+                                <input name="titulo" id="in_placa" maxlength="8" type="text" placeholder="AAA-0000" disabled>
                             </label>
                             <br>
                             <label>
                                 <h3>Inicie sua viagem</h3>
-                                Nome do produto: <input name="nome_prod" id="nome_prod" maxlength="45" type="text" placeholder="Morango, Leite..." disabled>
+                                Nome do produto: 
+                                <br>
+                                <input name="nome_prod" id="nome_prod" maxlength="45" type="text" placeholder="Morango, Leite..." disabled>
                                 <br>
                                 <br>
                                 Placa do caminhão 
-                                que realizara a viagem: <input name="placaviagem" id="placaviagem" maxlength="45" type="text" placeholder="Fruta, Laticínio..." disabled> 
+                                que realizara a viagem: 
                                 <br>
-                                 <br>
-                                Data de inicio: <input name="dt_inicio" id="dt_inicio" maxlength="45" type="date" placeholder="2021-11-29" disabled>
+                                <input name="placaviagem" id="placaviagem" maxlength="45" type="text" placeholder="Fruta, Laticínio..." disabled> 
+                                <br>
+                                <br>
+                                Data de inicio: 
+                                <br>
+                                <input name="dt_inicio" id="dt_inicio" maxlength="45" type="date" placeholder="2021-11-29" disabled>
                             </label>
                             <br>
                             <label>
                                 <h3>Finalize sua viagem</h3>
                                numero de identificação da viagem 
+                               <br>
                                <input type="text" id="id_viagem" placeholder="viagem que voce já realizou"
                                disabled>
-                                Data de chegada: <input name="titulo" id="dt_chegada" maxlength="45" type="date"
+                               <br>
+                               <br>
+                                Data de chegada: 
+                                <br>
+                                <input name="titulo" id="dt_chegada" maxlength="45" type="date"
                                 placeholder="2021-11-04" disabled>
                             </label>
+                            </div>
                             <br>
                             <br>
                             <div class="div_botoes_cadastro">
+                            <button id="sumir">Lista de produtos
+                                    <div class="graph" id="mostrar">
+                                    <div class="prod_1" id="mostrar">Morango</div>
+                                    <div class="prod_2" id="mostrar">Leite</div>
+                                    <div class="prod_3" id="mostrar">Carne</div>
+                                    <div class="prod_4" id="mostrar">Banana</div>
+                                    <div class="prod_5" id="mostrar">Manga</div>
+                            </button>
+                            <button id="sumir">Lista dos caminhões
+                                <div class="graph" id="mostrar">
+                                    <div class="prod_2" id="mostrar">FML-7668</div>
+                                    <div class="prod_3" id="mostrar">CYO-3883</div>
+                                    <div class="prod_4" id="mostrar">BTU-0694</div>
+                                    <div class="prod_5" id="mostrar">IAH-4874</div>
+                                  </div>
+                            </button>
                             <button onclick="cadastrar_caminhaotela()">Cadastre seu Caminhão</button>
                             <button onclick="iniciar_viagem()">Inciar viagem</button>
                             <button onclick="finalizar_viagem()">Finalizar viagem</button>

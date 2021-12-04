@@ -6,11 +6,7 @@ body {
 }
 
 
-.dash h1 {
-  width: 100%;
-  text-align: center;
-  color: white;
-}
+
 .dash-right .avisos {
   width: 100%;
   /* border: 3px solid pink; */
@@ -31,13 +27,13 @@ body {
 .dash-right .avisos .container .div-form #form_postagem {
   width: 100%;
 }
-
+/*--------Alterando inputs e botões---------*/
 .dash-right .avisos .div-form label {
   width: 100%;
 }
 
 .dash-right .avisos .div-form input {
-  width: 100%;
+  width: 70%;
   border-radius: 5px;
 }
 
@@ -62,12 +58,125 @@ body {
   width: 120px;
   margin-left: 20px;
 }
+
 .div_botoes_cadastro {
-  width: 100%;
+  width: 53%;
+  height: 70vh;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /*background-color: #e6005a;*/
+  margin-left: 50%;
+  margin-top: -70%;
+ }
+
+.div_labels {
+  width: 53%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /*background-color: #e6005a;*/
+}
+
+.dash-right{
   display: flex;
   align-items: center;
   justify-content: center;
- }
+}
+/*
+  .div-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5c6bc0;
+}
+*/
+
+.headeeer {
+  width: 100%;
+  height: 10vh;
+  background-color: #094373;
+  border: #186baf solid 3px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.headeeer img {
+  width: 7%;
+}
+
+.headeeer a {
+  color: #fff;
+}
+
+/*-------------Gráfico-------------*/
+.graph {
+  background-color: #eaeaea;
+  /*width: 100%;*/
+  height: 20vh;
+  margin: 10px;
+  padding: 5px;
+  overflow-y: scroll;
+  border: #186baf solid 2px;
+  border-radius: 12px;
+}
+.graph::-webkit-scrollbar {
+  background-color: #186baf;
+  color: #32b9cd;
+  border-radius: 10px;
+}
+/*-------------Gráfico-------------*/
+
+/*-------------Div Produto e Caminhões-------------*/
+.prod_1 {
+  width: 100%;
+  height: 30%;
+  background-color: #ff7043;
+}
+
+.prod_2 {
+  width: 100%;
+  height: 30%;
+  background-color: #5c6bc0;
+}
+
+.prod_3 {
+  width: 100%;
+  height: 30%;
+  background-color: #e6005a;
+}
+
+.prod_4 {
+  width: 100%;
+  height: 30%;
+  background-color: #ffee58;
+}
+
+.prod_5 {
+  width: 100%;
+  height: 30%;
+  background-color: #9ccc65;
+}
+/*-------------Div Produto e Caminhões-------------*/
+
+/* ---- Tentativa de fazer aparecer algo ---- */
+#mostrar {
+  display: none;
+}
+#sumir:hover #mostrar{
+  display: block;
+}
+
+.div_aparecer {
+  color: #fff;
+}
+/**/
+/*--------Alterando inputs e botões (FIM)---------*/
 
 .publicacao-btn-editar {
   cursor: pointer;
