@@ -6,7 +6,7 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
                         DATE_FORMAT(datahora,'%H:%i:%s') as momento_grafico
                     from dados
                     where fkcaminhao = ${idAquario}
-                    order by iddados desc limit ${limite_linhas}`;
+                    order by iddados desc limit 20`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
