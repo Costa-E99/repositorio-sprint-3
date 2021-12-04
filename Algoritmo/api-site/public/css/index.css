@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: black;
+ background-color: black;
   font-family: 'Alata';
   color: #fff;
 }
@@ -46,11 +46,14 @@ a {
 
 .banner {
   /* height: 400px; estava 40px, mas para a tela inicial ficar cerinha eu coloquei 90vh */
-  height: 70vh;
+  height: 68vh;
+background-color: black;
+  /* opacity: 0.7; */
 }
 .banner .container {
   width: 100%;
   display: flex;
+
 }
 
 .banner .esq {
@@ -93,79 +96,155 @@ a {
   display: flex;
  
 }
+/*-- ------  DIA A DIA COM A APOENA ---- -----  */
+.dia_dia{
+  box-shadow: 15px 0px 25px rgb(84, 81, 81);
+  border-radius: 15px;
+  border: solid 4px #16476f ;
+  height: 18vh;
+  width: 98.25vw;
+  background-color:#285477 ;
 
-.sp_dia {
-  margin-left: 550px;
-  font-size: 22px;
-}
-.dia_a_dia {
-  width: 95%;
-  height: 250px;
   display: flex;
-  align-items: center;
-  margin: auto;
-}
-.dia_a_dia img {
-  height: 40%;
-}
-.text {
-  margin-left: 10px;
-}
-.dia1 {
-  width: 20%;
-  background-color: #013333;
-  height: 200px;
-  font-size: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  margin: auto;
-}
-.dia2 {
-  width: 20%;
-  background-color: #014040;
-  height: 200px;
-  font-size: 10px;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin: auto;
+  border: solid 4px #6cb2eb ;
+  background-color:#285477 ;
 }
-.dia3 {
-  width: 20%;
-  background-color: #014545;
-  height: 200px;
-  font-size: 10px;
+.filhodia{
+
+  height: 18vh;
+  width: 98.25vw;
+
+  /* profundidade e distancia da div para o usuario */
+perspective: 1000px;
+}
+.neto{
+  height: 18vh;
+  width: 98.25vw;
+ transition: 1.5s;
+/* para a imagem ficar parecend 3D  */
+transform-style: preserve-3d;
+/* para a div ser flexivel */
+position: relative;
+}
+.filhodia:hover .neto{
+ transform: rotatex(180deg);
+
+}
+
+.rotina{
+  font-size: 40px;
+  font-weight: 100;
+  position: absolute;
+}
+.dia_dia, .costas{
+ position: absolute;
+ box-shadow: 15px 0px 25px rgb(84, 81, 81);
+ border-radius: 15px;
+ height: 18vh;
+ width: 98.25vw;
+ /* display: flex; */
+
+ 
+ 
+ 
+
+}
+.costas{
+  background-color: #094373;
+ transform: rotatex(180deg);
+ border: solid 4px #4d555c ;
+ /* display: flex; */
+ overflow-y: scroll;
+ overflow-x: hidden;
+}
+
+.info{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
+  /* height: 18vh; */
+  /* width: 98.25vw; */
+
 }
-.dia4 {
-  width: 20%;
-  background-color: #038c8c;
-  height: 200px;
-  font-size: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
+.dia1{
+  font-weight: 900;
+  color: black;
+  margin-top: 3vh;
+  margin-left: 2vw;
+  height: 14vh;
+  width: 20vw;
+  text-align: center;
+  /* width: 16vw; */
+  border-radius: 25px;
+  background-color: #4f8282;
+  border: solid 2px black;
+
+  
 }
-.dia5 {
-  width: 20%;
-  background-color: #04cccc;
-  height: 200px;
-  font-size: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
+.imagem1{
+  margin-top: 1vh;
+  width:8vw ;
+  height: 17vh;
+  background-size: cover;
+  background-image: url(https://cdn-icons-png.flaticon.com/512/2666/2666501.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+.imagem2{
+  margin-left: 3vw;
+   margin-top: 3vh;
+  width:5.5vw ;
+  height: 15vh;
+  background-size: cover;
+background-image: url(https://cdn-icons-png.flaticon.com/512/1787/1787230.png);
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.imagem3{
+  border-radius: 50px;
+  margin-left: 3vw;
+   margin-top: 5vh;
+  width:5.5vw ;
+  height: 12vh;
+  background-size: cover;
+background-image: url(https://thumbs.dreamstime.com/b/icono-elegante-del-sensor-de-temperatura-en-el-fondo-blanco-para-gr%C3%A1fico-y-dise%C3%B1o-web-muestra-simple-moderna-vector-concepto-132865603.jpg);
+background-size: 225%;
+background-repeat: no-repeat;
+background-position-x: 40%;
+background-position-y: 60%;
+}
+
+
+.imagem4{
+  background-image: url(https://www.seekpng.com/png/detail/357-3576734_dashboard-icon-blue.png);
+  margin-top: 3vh;
+  width:8vw ;
+  height: 15vh;
+  border-radius: 50px;
+  background-size: 235%;
+  background-repeat: no-repeat;
+  background-position-x: 48%;
+  background-position-y: 50%;
+  
+  
+}
+
+.imagem5{
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNL3RpWLRbN7cYzPhGWzWk4oYK8BMvGHT_0r-gJ9kIHyhCv37x5vpJfl7pis9CTlcHskE&usqp=CAU);
+  margin-top: 3vh;
+  width:8vw ;
+  height: 15vh;
+  border-radius: 50px;
+  background-size: 130%;
+  background-repeat: no-repeat;
+  background-position-x: 48%;
+  background-position-y: 50%;
+  
+  
+}
+
+
 
 /* ------------------------- TELA 2 QUE LEVA AO SIMULADOR colocar a imagem */
 
@@ -177,11 +256,13 @@ a {
   margin-bottom: 80px;
 }
 
+
 .containertela2 h1 {
   font-size: 25px;
   font-weight: bold;
   width: 70%;
 }
+
 
 .containertela2 p {
   color: rgba(255, 255, 255, 0.651);
