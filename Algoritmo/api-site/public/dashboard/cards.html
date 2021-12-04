@@ -59,35 +59,35 @@
             <div class="regua">
                 <div class="item-regua perigo-frio">
                     <h4>Perigo</h4>
-                    <h2>0°C</h2>
+                    <h2 id="alert1">0°C</h2>
                 </div>
                 <div class="item-regua alerta-frio">
                     <h4>Alerta</h4>
-                    <h2>0°C</h2>
+                    <h2 id="alert2">0°C</h2>
                 </div>
                 <div class="item-regua ideal">
                     <h4>Ideal</h4>
-                    <h2>0°C</h2>
+                    <h2 id="alert3">0°C</h2>
                 </div>
                 <div class="item-regua alerta-quente">
                     <h4>Alerta</h4>
-                    <h2>0°C</h2>
+                    <h2 id="alert4">0°C</h2>
                 </div>
                 <div class="item-regua perigo-quente">
                     <h4>Perigo</h4>
-                    <h2>0°C</h2>
+                    <h2 id="alert5">0°C</h2>
                 </div>
             </div>
 
             <div class="cards">
-                <div class="card">
+                <div class="card" onclick="alertasMorango()">
                     <h1>Caminhão 100 - Morango</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_1">-°C</p>
                     </div>
                     <div class="cor-alerta" id="card_1"></div>
                 </div>
-                <div class="card">
+                <div class="card" onclick="alertasLeite()">
                     <h1>Caminhão 101 - Leite</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_2">-°C</p>
@@ -95,14 +95,14 @@
                     <div class="cor-alerta" id="card_2"></div>
 
                 </div>
-                <div class="card">
+                <div class="card" onclick="alertasVinho()">
                     <h1>Caminhão 102 - Vinho</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_3">-°C</p>
                     </div>
                     <div class="cor-alerta" id="card_3"></div>
                 </div>
-                <div class="card">
+                <div class="card" onclick="alertasVinho()">
                     <h1>Caminhão 103 - Vinho</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_4">-°C</p>
@@ -153,28 +153,28 @@
             });
     }
 
+    var limiteMorango = {
+        muito_quente: 26.00,
+        quente: 22.75,
+        ideal: 19.50,
+        frio: 16.25,
+        muito_frio: 13.00
+    };
+    var limiteLeite = {
+        muito_quente: 9.00,
+        quente: 8.50,
+        ideal: 8.00,
+        frio: 7.50,
+        muito_frio: 7.00
+    };
+    var limiteVinho = {
+        muito_quente: 19.00,
+        quente: 17.75,
+        ideal: 16.50,
+        frio: 15.25,
+        muito_frio: 15.00
+    };
     function alertar(temperatura, idAquario) {
-        var limiteMorango = {
-            muito_quente: 26.00,
-            quente: 22.75,
-            ideal: 19.50,
-            frio: 16.25,
-            muito_frio: 13.00
-        };
-        var limiteLeite = {
-            muito_quente: 9.00,
-            quente: 8.50,
-            ideal: 8.00,
-            frio: 7.50,
-            muito_frio: 7.00
-        };
-        var limiteVinho = {
-            muito_quente: 19.00,
-            quente: 17.75,
-            ideal: 16.50,
-            frio: 15.25,
-            muito_frio: 15.00
-        };
 
         var classe_temperatura = 'cor-alerta';
 
@@ -294,6 +294,28 @@
         // alterando
         card.className = classe_temperatura;
 
+    }
+
+    function alertasMorango() {
+        alert1.innerHTML = limiteMorango.muito_quente + "°C";
+        alert2.innerHTML = limiteMorango.quente + "°C";
+        alert3.innerHTML = limiteMorango.ideal + "°C";
+        alert4.innerHTML = limiteMorango.frio + "°C";
+        alert5.innerHTML = limiteMorango.muito_frio + "°C";
+    }
+    function alertasLeite() {
+        alert1.innerHTML = limiteLeite.muito_quente + "°C";
+        alert2.innerHTML = limiteLeite.quente + "°C";
+        alert3.innerHTML = limiteLeite.ideal + "°C";
+        alert4.innerHTML = limiteLeite.frio + "°C";
+        alert5.innerHTML = limiteLeite.muito_frio + "°C";
+    }
+    function alertasVinho() {
+        alert1.innerHTML = limiteVinho.muito_quente + "°C";
+        alert2.innerHTML = limiteVinho.quente + "°C";
+        alert3.innerHTML = limiteVinho.ideal + "°C";
+        alert4.innerHTML = limiteVinho.frio + "°C";
+        alert5.innerHTML = limiteVinho.muito_frio + "°C";
     }
 
 </script>
