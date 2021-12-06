@@ -68,7 +68,7 @@ class ArduinoDataRead {
                 if (temperature & !isNaN(temperature)) {
                     this.__listDataTemp.push(temperature)
                 }
-                console.log("Temp: ",temperature," Umidade: ",humidity);
+                console.log("Temp: ",temperature);
             });
             
         }).catch(error => console.log(error));

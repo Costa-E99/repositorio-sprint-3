@@ -63,10 +63,10 @@
             <h1>Selecione seu caminhão</h1>
             <div class="btns-dash">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <button class="btn-chart" onclick="obterDadosGrafico(100)">Caminhão 100</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(101)">Caminhão 101</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(102)">Caminhão 102</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(103)">Caminhão 103</button>
+                <button id="btn100" class="btn-chart" onclick="obterDadosGrafico(100), mudarCor100()">Caminhão 100</button>
+                <button id="btn101" class="btn-chart" onclick="obterDadosGrafico(101), mudarCor101()">Caminhão 101</button>
+                <button id="btn102" class="btn-chart" onclick="obterDadosGrafico(102), mudarCor102()">Caminhão 102</button>
+                <button id="btn103" class="btn-chart" onclick="obterDadosGrafico(103), mudarCor103()">Caminhão 103</button>
             </div>
             <div class="graph">
                 <canvas id="canvas_grafico"></canvas>
@@ -83,7 +83,7 @@
 
 let proximaAtualizacao;
 
-window.onload = obterDadosGrafico(100);
+window.onload = obterDadosGrafico(100), mudarCor100();
 
 b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
@@ -201,6 +201,35 @@ function atualizarGrafico(idAquario, dados) {
         .catch(function (error) {
             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
+
+}
+
+function mudarCor100() {
+    btn100.style.backgroundColor = "#32b9cd";
+    btn101.style.backgroundColor = "#094373";
+    btn102.style.backgroundColor = "#094373";
+    btn103.style.backgroundColor = "#094373";
+
+}
+function mudarCor101() {
+    btn100.style.backgroundColor = "#094373";
+    btn101.style.backgroundColor = "#32b9cd";
+    btn102.style.backgroundColor = "#094373";
+    btn103.style.backgroundColor = "#094373";
+
+}
+function mudarCor102() {
+    btn100.style.backgroundColor = "#094373";
+    btn101.style.backgroundColor = "#094373";
+    btn102.style.backgroundColor = "#32b9cd";
+    btn103.style.backgroundColor = "#094373";
+
+}
+function mudarCor103() {
+    btn100.style.backgroundColor = "#094373";
+    btn101.style.backgroundColor = "#094373";
+    btn102.style.backgroundColor = "#094373";
+    btn103.style.backgroundColor = "#32b9cd";
 
 }
 </script>
