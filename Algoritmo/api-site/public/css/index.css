@@ -156,8 +156,7 @@ position: relative;
  transform: rotatex(180deg);
  border: solid 4px #4d555c ;
  /* display: flex; */
- overflow-y: scroll;
- overflow-x: hidden;
+
 }
 
 .info{
@@ -167,7 +166,7 @@ position: relative;
 
 }
 .dia1{
-  font-weight: 900;
+  font-weight: 700;
   color: black;
   margin-top: 3vh;
   margin-left: 2vw;
@@ -214,6 +213,23 @@ background-repeat: no-repeat;
 background-position-x: 40%;
 background-position-y: 60%;
 }
+.setinhaDE{
+  font-size: 50px;
+  color: #898f94;
+  /* margin-top: 0vh; */
+  /* margin-left: 2vw; */
+ font-weight: 100;
+  height: 18vh;
+  width: 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.botoesDE{
+  background-color: transparent;
+  border: transparent;
+}
+
 
 
 .imagem4{
@@ -223,6 +239,7 @@ background-position-y: 60%;
   height: 15vh;
   border-radius: 50px;
   background-size: 235%;
+  margin-left: 10vw;
   background-repeat: no-repeat;
   background-position-x: 48%;
   background-position-y: 50%;
@@ -237,6 +254,7 @@ background-position-y: 60%;
   height: 15vh;
   border-radius: 50px;
   background-size: 130%;
+  margin-left: 15vw;
   background-repeat: no-repeat;
   background-position-x: 48%;
   background-position-y: 50%;
@@ -250,7 +268,7 @@ background-position-y: 60%;
 
 .containertela2 {
   /* background-color: crimson; */
-  margin-left: 80px;
+  margin-left: 10vw;
   width: 80%;
   height: 100%;
   margin-bottom: 80px;
@@ -276,8 +294,13 @@ background-position-y: 60%;
 .card-img {
   margin: auto;
   text-align: center;
-  width: 50%;
+  /* width: 40%; */
+  /* background-color: red; */
+  /* box-shadow: 25px 5px 30px rgb(155, 153, 153); */
+  border-radius: 25px;
+  /* background-color: red; */
 }
+
 
 .caixatela2 {
   padding: 30px;
@@ -286,6 +309,8 @@ background-position-y: 60%;
   background: linear-gradient(90.12deg, #041e33 0.11%, #050e15 99.9%);
   border-radius: 20px;
   display: flex;
+  box-shadow: 30px 30px 30px #272829, 
+  30px 12px 12px white;
 }
 
 .cifrao {
