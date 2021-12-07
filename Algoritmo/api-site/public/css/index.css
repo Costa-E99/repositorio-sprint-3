@@ -139,11 +139,11 @@ position: relative;
   position: absolute;
 }
 .dia_dia, .costas{
- position: absolute;
+ /* position: absolute; */
  /* box-shadow: 15px 0px 25px rgb(84, 81, 81); */
  border-radius: 15px;
  height: 18vh;
- width: 98.25vw;
+ width: 98vw;
  /* display: flex; */
  background-color:#161616 ;
 
@@ -167,7 +167,7 @@ position: relative;
 
 }
 .dia1{
-  font-weight: 700;
+  font-weight: 900;
   color: black;
   margin-top: 3vh;
   margin-left: 2vw;
@@ -262,27 +262,19 @@ background-position-y: 60%;
   
   
 }
-
-
-
-/* ------------------------- TELA 2 QUE LEVA AO SIMULADOR colocar a imagem */
-
 .containertela2 {
   /* background-color: crimson; */
-  margin-left: 2.5vw;
-  width: 95vw;
-  height:50vh;
+  margin-left: 80px;
+  width: 80%;
+  height: 100%;
   margin-bottom: 80px;
-  /* background-color: green; */
 }
-
 
 .containertela2 h1 {
   font-size: 25px;
   font-weight: bold;
   width: 70%;
 }
-
 
 .containertela2 p {
   color: rgba(255, 255, 255, 0.651);
@@ -296,24 +288,16 @@ background-position-y: 60%;
 .card-img {
   margin: auto;
   text-align: center;
-  /* width: 40%; */
-  /* background-color: red; */
-  /* box-shadow: 25px 5px 30px rgb(155, 153, 153); */
-  border-radius: 25px;
-  /* background-color: red; */
+  width: 50%;
 }
 
-
 .caixatela2 {
-  height: 50vh;
   padding: 30px;
   margin: 0px 0px 0px 0px;
   margin-top: 20px;
   background: linear-gradient(90.12deg, #041e33 0.11%, #050e15 99.9%);
   border-radius: 20px;
   display: flex;
-  box-shadow: 30px 30px 30px #272829, 
-  30px 12px 12px white;
 }
 
 .cifrao {
@@ -331,108 +315,62 @@ background-position-y: 60%;
   border: solid 3px #fff;
 }
 
+.serviço {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  margin-left: 350px;
+  margin-top: 80px;
+}
+
+.textoserviço {
+  font-size: 15px;
+  display: flex;
+  margin: auto;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.582);
+  margin-top: 10px;
+}
+
+.box-container {
+  width: 80%;
+  display: flex;
+}
+
+.box-img {
+  width: 30%;
+  margin-top: 20px;
+}
+
+.container-serviço {
+  width: 80%;
+  margin-top: 55px;
+  height: 60%;
+}
+
+.box {
+  width: 30%;
+  height: 120px;
+  border-radius: 15px;
+  background: rgba(22, 44, 60, 1);
+  text-align: center;
+  margin: auto;
+}
 
 /* ------------------------- beneficios --------------- */
-.servicos{
-  margin-top: 3vh;
-  margin-left: 2.5vw;
-  border-radius:50px;
-  width: 94vw;
-  height: 90vh;
-  background: linear-gradient(90.12deg, #041e33 0.11%, #050e15 99.9%);
-  box-shadow: 20px 5px 5px #282b2b,
-  20px 5px 10px white;
 
-  ;
-}
-.servicos_cima{
-  width: 100%;
-  height: 50%;
-  /* background-color: yellow; */
+.texto {
   display: flex;
-  /* border-radius: 50px; */
-}
-.servicos_cima_esquerda{
-  width: 100%;
-  height: 100%;
-  /* background-color: blue; */
-  text-align: center;
-  
-  
-}
-.servicos_cima_esquerda_img{
-  border-radius:750px;
-  margin-left: 10vw;
- margin-top: 5vh;
-  height: 20vh;
-  width: 11vw;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position-x: 0px;
-  background-position-y: -10px;
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjWBFgYpgdRHtnWvXWmWrMJhfS5G7VPEee8A&usqp=CAU);
-}
-
-.servicos_cima_meio{
-  width: 100%;
-  height: 100%;
-  /* background-color:rosybrown; */
-  text-align: center;
-}
-.textoccimameio{
-  display: flex;
-  text-align: center;
+  padding: 20px;
+  border: solid white 2px;
+  align-self: center;
   justify-content: center;
-  align-items: center;
+  color: #fff;
 }
-.servicos_cima_meio h1{
-  color: #000;
-  text-align: center;
-}
-.servicos_cima_direita{
-  width: 100%;
-
-  /* background-color:rosybrown; */
-  text-align: center;
-  
-  
-}
-
-.servicos_cima_direita_img{
-  border-radius: 15px 15px 20px 20px ;
-  margin-top: 8vh;
-  margin-left: 11vw;
- /* margin-top: 2vh; */
-  height: 25vh;
-  width: 10vw;
-  background-repeat: no-repeat;
-  background-size: 120%;
-  background-position-x: -14px;
-  background-image: url(https://img2.gratispng.com/20180610/kvb/kisspng-computer-icons-report-clip-art-fatality-analysis-reporting-system-5b1daa0cac57b9.3848326315286707327059.jpg);
-}
-.servicos_baixo{
-  width: 100%;
-  height: 50%;
-
-  display: flex;
-
-}
-.servico_baixo_esquerda{
-  width: 100%;
-  height: 100%;
-  /* background-color: red; */
-}
-
-.servico_baixo_meio{
-  width: 100%;
-  height: 100%;
-  background-color:blue;
-}
-
-
-
- /* ------------------- quem somos nos ------------ */ */
- .quem_somosa {
+/* ------------------- quem somos nos ------------ */
+.quem_somosa {
   display: flex;
   /* background-color: green; */
   height: 47.5vh;

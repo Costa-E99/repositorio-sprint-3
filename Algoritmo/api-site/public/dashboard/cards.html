@@ -80,14 +80,14 @@
             </div>
 
             <div class="cards">
-                <div class="card" onclick="alertasMorango()">
+                <div id="card1" class="card" onclick="alertasMorango()">
                     <h1>Caminhão 100 - Morango</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_1">-°C</p>
                     </div>
                     <div class="cor-alerta" id="card_1"></div>
                 </div>
-                <div class="card" onclick="alertasLeite()">
+                <div id="card2" class="card" onclick="alertasLeite()">
                     <h1>Caminhão 101 - Leite</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_2">-°C</p>
@@ -95,14 +95,14 @@
                     <div class="cor-alerta" id="card_2"></div>
 
                 </div>
-                <div class="card" onclick="alertasVinho()">
+                <div id="card3" class="card" onclick="alertasVinho()">
                     <h1>Caminhão 102 - Vinho</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_3">-°C</p>
                     </div>
                     <div class="cor-alerta" id="card_3"></div>
                 </div>
-                <div class="card" onclick="alertasVinho()">
+                <div id="card4" class="card" onclick="alertasVinho2()">
                     <h1>Caminhão 103 - Vinho</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_4">-°C</p>
@@ -302,6 +302,11 @@
         alert3.innerHTML = limiteMorango.ideal + "°C";
         alert4.innerHTML = limiteMorango.quente + "°C";
         alert5.innerHTML = limiteMorango.muito_quente + "°C";
+        card1.style.backgroundColor = "#32b9cd";
+        card2.style.backgroundColor = "#212124";
+        card3.style.backgroundColor = "#212124";
+        card4.style.backgroundColor = "#212124";
+
     }
     function alertasLeite() {
         alert1.innerHTML = limiteLeite.muito_frio + "°C";
@@ -309,6 +314,10 @@
         alert3.innerHTML = limiteLeite.ideal + "°C";
         alert4.innerHTML = limiteLeite.quente + "°C";
         alert5.innerHTML = limiteLeite.muito_quente + "°C";
+        card1.style.backgroundColor = "#212124";
+        card2.style.backgroundColor = "#32b9cd";
+        card3.style.backgroundColor = "#212124";
+        card4.style.backgroundColor = "#212124";
     }
     function alertasVinho() {
         alert1.innerHTML = limiteVinho.muito_frio + "°C";
@@ -316,6 +325,21 @@
         alert3.innerHTML = limiteVinho.ideal + "°C";
         alert4.innerHTML = limiteVinho.quente + "°C";
         alert5.innerHTML = limiteVinho.muito_quente + "°C";
+        card1.style.backgroundColor = "#212124";
+        card2.style.backgroundColor = "#212124";
+        card3.style.backgroundColor = "#32b9cd";
+        card4.style.backgroundColor = "#212124";
+    }
+    function alertasVinho2() {
+        alert1.innerHTML = limiteVinho.muito_frio + "°C";
+        alert2.innerHTML = limiteVinho.frio + "°C";
+        alert3.innerHTML = limiteVinho.ideal + "°C";
+        alert4.innerHTML = limiteVinho.quente + "°C";
+        alert5.innerHTML = limiteVinho.muito_quente + "°C";
+        card1.style.backgroundColor = "#212124";
+        card2.style.backgroundColor = "#212124";
+        card3.style.backgroundColor = "#212124";
+        card4.style.backgroundColor = "#32b9cd";
     }
 
 </script>
