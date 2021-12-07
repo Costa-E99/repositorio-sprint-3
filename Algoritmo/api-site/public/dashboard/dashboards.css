@@ -115,7 +115,7 @@ body {
 }
 
 /*-------------Gráfico-------------*/
-.graph {
+.grafico1 {
   background-color: #eaeaea;
   /*width: 100%;*/
   height: 20vh;
@@ -125,7 +125,7 @@ body {
   border: #186baf solid 2px;
   border-radius: 12px;
 }
-.graph::-webkit-scrollbar {
+.grafico1::-webkit-scrollbar {
   background-color: #186baf;
   color: #32b9cd;
   border-radius: 10px;
