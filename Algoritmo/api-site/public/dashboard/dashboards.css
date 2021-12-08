@@ -2,7 +2,7 @@
 
 *,
 body {
-  font-family: "Exo 2", sans-serif;
+  font-family: "montserrat";
 }
 
 
@@ -85,6 +85,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.janela {
+  width: 100%;
 }
 /*
   .div-form {
@@ -246,7 +249,13 @@ body {
     justify-content: space-around;*/
   height: 100vh;
 }
-
+.dash h1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
 .regua {
   display: flex;
   flex-wrap: wrap;
