@@ -26,7 +26,7 @@
             <a href="index.html">Início</a>
           </li>
           <li class="agora">
-            <a href="simulador.html">Orçamento</a>
+            <a href="orcamento.html">Orçamento</a>
           </li>
           <li class="agora">|</li>
           <li style="border-bottom: 0.5px solid #04cccc" class="agora">
@@ -38,6 +38,55 @@
 
     <!----------------- Banner------------------ -->
     <div class="banner">
+      <div class="menu_central">
+      <div class="h1">
+          <H2>Criar conta</H2>
+        </div>
+           <form id="form_cadastro" method="post" onsubmit="return cadastrar_empresa(), cadastrar_usuario()">
+        <div class="empresa">
+            Empresa <br>
+            <input class="input-empresa" name="nome" placeholder="Apoena"> <br>
+            Cnpj <br>
+            <input type="text" id="input_cnpj" name="cnpj" maxlength="14" class="input-empresa" placeholder="XX. XXX. XXX/0001-XX"/> <br>
+            <span id="span_cnpj"></span>
+            Setor <br>
+            <input class="input-empresa" name="setor" placeholder="Administrativo"/> <br>
+
+            Senha <br>
+            <input type="password" name="senha" id="input_senha" class="input-empresa" placeholder="******"/> <br>
+            <span id="span_senha" ></span>
+            Confimar <br>
+            <input type="password" name="confirmacao-senha" id="input_confimar" class="input-empresa" placeholder="******"/> <br>
+            <span id="span_confirmar"></span>
+
+        </div>
+        <div class="usuarios">
+            Responsavel <br>
+            <input class="input-empresa" name="responsavel" placeholder="Fernando"/> <br>
+            CPF <br>
+            <input class="input-empresa" name="cpf" placeholder="xxx-xxx-xxx-xx"/> <br>
+            Cargo <br>
+            <input class="input-empresa" name="cargo" placeholder="Gerente administrativo"/> <br>
+           
+            Email<br>
+            <input name="email" type="text" id="input_email"  class="input-empresa" placeholder="meuemail@provedor.com"/> <br> <br>
+            <span id="span_email" ></span>
+            <button class="button_conta"> <u> Cadastrar </u></button>
+
+        </div>
+      </form>
+      <div id="div_aguardar" class="loading-div">
+        <img src="../Algoritmo/imgs/assets/circle-loading.gif" id="loading-gif">
+    </div>
+    <div id="div_erros_login">
+      </div>
+    </div>
+    </div>
+  </body>
+</html>
+   
+    <!-- <div class="banner" >
+   
       <div class="container-1">
         <div class="container-2">
           <h1>Criar sua Conta do Apoena</h1>
@@ -45,62 +94,51 @@
             <form id="form_cadastro" method="post" onsubmit="return cadastrar_empresa(), cadastrar_usuario()">
             <div class="box">
               <div class="box-2">
-
-
                 Nome da empresa: <br>
                 <input class="input-empresa" name="nome" placeholder="Apoena" />
                 <br> <br>
-
-
                 <span>CNPJ:</span> <br>
-                <input type="text" id="input_cnpj" name="cnpj" maxlength="14" class="input-empresa" placeholder="XXXXXXXXXXXXXX"/> <br>
+                <input type="text" id="input_cnpj" name="cnpj" maxlength="14" class="input-empresa" placeholder="XX. XXX. XXX/0001-XX"/> <br>
                 <span id="span_cnpj"></span>
-                <br>
-
+               
+            </div>
+           
+            <div class="box-3">
                 <span>Responsavel:</span> <br>
-                <input class="input-empresa" name="responsavel" placeholder="Fernando Brandão"/>
-                <br><br>
-                
-                
+                <input class="input-empresa" name="responsavel" placeholder="Fernando"/>
+                <br> <br>
+                <span>CPF:</span> <br>
+                <input class="input-empresa" name="cpf" placeholder="xxx-xxx-xxx-xx"/> <br>
+                <span>Cargo:</span> <br>
+                <input class="input-empresa" name="cargo" placeholder=""/> <br>
+                <span>Setor:</span> <br>
+                <input class="input-empresa" name="setor" placeholder=""/> <br>
+                <br> <br>
+                <br> <br>
+                <br> <br>
                 <span>Email:</span> <br>
                 <input name="email" type="text" id="input_email"  class="input-empresa" placeholder="meuemail@provedor.com"/> <br>
                 <span id="span_email" ></span>
-                <br>
-
-
-                <span>Senha:</span> <br>
-                <input type="password" name="senha" id="input_senha" class="input-empresa" placeholder="******"/> <br>
-                <span id="span_senha" ></span>
-
-            </div>
-            
-            <div class="box-3">
-                
-                <span>CPF:</span> <br>
-                <input class="input-empresa" name="cpf" maxlength= 11 placeholder="XXXXXXXXXXX"/> <br><br>
-
-
-                <span>Cargo:</span> <br>
-                <input class="input-empresa" name="cargo" placeholder="Gerente Geral"/> <br><br>
-
-
-                <span>Setor:</span> <br>
-                <input class="input-empresa" name="setor" placeholder="Governança"/> <br><br>
-
-                <span>Confimar:</span> <br>
-                <input type="password" name="confirmacao-senha" id="input_confimar" class="input-empresa" placeholder="******"/> <br>
-                <span id="span_confirmar"></span>
-                  <br>
-                
-                <button class="button_conta">Cadastrar</button>
-                  
+               
               </div>
             </div>
-
-
-            
+            <div class="box-4">
+              <div id="div_senha">
+                <span>Senha:</span>
+                <input type="password" name="senha" id="input_senha" class="input-empresa" placeholder="******"/> <br>
+                <span id="span_senha" ></span>
+              </div>
+              <br> <br>
+              <div id="div_confirmar">
+              <span>Confimar:</span>
+              <input type="password" name="confirmacao-senha" id="input_confimar" class="input-empresa" placeholder="******"/> <br>
+              <span id="span_confirmar"></span>
             </div>
-            
+            </div>
+            <div>
+              <br /><br />
+              <button class="button_conta">Cadastrar</button>
+            </div>
           </form>
         </div>
         <div id="div_aguardar" class="loading-div">
@@ -113,7 +151,7 @@
       </div>
     </div>
   </body>
-</html>
+</html> -->
 <script>
 function limparFormulario() {
         document.getElementById("form_cadastro").reset();
