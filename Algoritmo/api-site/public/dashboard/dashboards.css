@@ -246,7 +246,13 @@ body {
     justify-content: space-around;*/
   height: 100vh;
 }
-
+.dash h1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
 .regua {
   display: flex;
   flex-wrap: wrap;
