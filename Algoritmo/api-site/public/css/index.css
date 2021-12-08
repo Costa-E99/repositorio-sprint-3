@@ -139,7 +139,7 @@ position: relative;
   position: absolute;
 }
 .dia_dia, .costas{
- /* position: absolute; */
+ position: absolute;
  /* box-shadow: 15px 0px 25px rgb(84, 81, 81); */
  border-radius: 15px;
  height: 18vh;
