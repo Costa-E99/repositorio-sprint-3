@@ -20,7 +20,7 @@
     <script type='text/javascript' src='https://widget.freshworks.com/widgets/72000000689.js' async defer></script>
 </head>
 
-<body onload="validarSessao(), atualizacaoPeriodica()">
+<body onload="validarSessao(), atualizacaoPeriodica(), alertasMorango()">
 
     <div class="janela">
 
@@ -302,10 +302,15 @@
         alert3.innerHTML = limiteMorango.ideal + "°C";
         alert4.innerHTML = limiteMorango.quente + "°C";
         alert5.innerHTML = limiteMorango.muito_quente + "°C";
-        card1.style.backgroundColor = "#32b9cd";
-        card2.style.backgroundColor = "#212124";
-        card3.style.backgroundColor = "#212124";
-        card4.style.backgroundColor = "#212124";
+        card1.style.borderBottom = "3px solid #32b9cd";
+        card2.style.borderBottom = "";
+        card3.style.borderBottom = "";
+        card4.style.borderBottom = "";
+
+        // card1.style.backgroundColor = "#32b9cd";
+        // card2.style.backgroundColor = "#212124";
+        // card3.style.backgroundColor = "#212124";
+        // card4.style.backgroundColor = "#212124";
 
     }
     function alertasLeite() {
@@ -314,10 +319,14 @@
         alert3.innerHTML = limiteLeite.ideal + "°C";
         alert4.innerHTML = limiteLeite.quente + "°C";
         alert5.innerHTML = limiteLeite.muito_quente + "°C";
-        card1.style.backgroundColor = "#212124";
-        card2.style.backgroundColor = "#32b9cd";
-        card3.style.backgroundColor = "#212124";
-        card4.style.backgroundColor = "#212124";
+        card1.style.borderBottom = "";
+        card2.style.borderBottom = "3px solid #32b9cd";
+        card3.style.borderBottom = "";
+        card4.style.borderBottom = "";
+        // card1.style.backgroundColor = "#212124";
+        // card2.style.backgroundColor = "#32b9cd";
+        // card3.style.backgroundColor = "#212124";
+        // card4.style.backgroundColor = "#212124";
     }
     function alertasVinho() {
         alert1.innerHTML = limiteVinho.muito_frio + "°C";
@@ -325,10 +334,14 @@
         alert3.innerHTML = limiteVinho.ideal + "°C";
         alert4.innerHTML = limiteVinho.quente + "°C";
         alert5.innerHTML = limiteVinho.muito_quente + "°C";
-        card1.style.backgroundColor = "#212124";
-        card2.style.backgroundColor = "#212124";
-        card3.style.backgroundColor = "#32b9cd";
-        card4.style.backgroundColor = "#212124";
+        // card1.style.backgroundColor = "#212124";
+        // card2.style.backgroundColor = "#212124";
+        // card3.style.backgroundColor = "#32b9cd";
+        // card4.style.backgroundColor = "#212124";
+        card1.style.borderBottom = "";
+        card2.style.borderBottom = "";
+        card3.style.borderBottom = "3px solid #32b9cd";
+        card4.style.borderBottom = "";
     }
     function alertasVinho2() {
         alert1.innerHTML = limiteVinho.muito_frio + "°C";
@@ -336,10 +349,14 @@
         alert3.innerHTML = limiteVinho.ideal + "°C";
         alert4.innerHTML = limiteVinho.quente + "°C";
         alert5.innerHTML = limiteVinho.muito_quente + "°C";
-        card1.style.backgroundColor = "#212124";
-        card2.style.backgroundColor = "#212124";
-        card3.style.backgroundColor = "#212124";
-        card4.style.backgroundColor = "#32b9cd";
+        // card1.style.backgroundColor = "#212124";
+        // card2.style.backgroundColor = "#212124";
+        // card3.style.backgroundColor = "#212124";
+        // card4.style.backgroundColor = "#32b9cd";
+        card1.style.borderBottom = "";
+        card2.style.borderBottom = "";
+        card3.style.borderBottom = "";
+        card4.style.borderBottom = "3px solid #32b9cd";
     }
 
 </script>

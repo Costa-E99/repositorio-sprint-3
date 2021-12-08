@@ -42,7 +42,7 @@
             width: 80%;
             margin-left: 10%;
             margin-right: 10%;
-            margin-top: 10vh;
+            margin-top: 3vh;
             height: 500px;
         ">
             <div style="
@@ -56,7 +56,7 @@
                 <div style="padding: 20px; color: #fafafa;">
                     <div style="width: 50%; float: left; ">
                         <h1>Simulação de lucros</h1>
-                        <p style="font-family: thin; margin-top: -20px;">
+                        <p style=" margin-top: -20px;">
                             Faça uma rápida simulação e entenda o quanto você perde no ano por causa do desperdicio e a diferença que nossa solução traria
                             para seu negócio
                         </p>
@@ -93,8 +93,10 @@
                             border: none;
                             width: 91%;
                             font-family: bold;
+                            font-size: 30px;
                             color: #fafafa;
                             height: 50px;
+                            cursor: pointer;
                             ">
                             Simular
                         </button>
@@ -122,29 +124,31 @@
         // variaveis
         var producao_total = Number(input_prod_anual.value); // o que ele produz
         var lucro_sem = Number(input_vendas_anual.value); // quanto vende 
-        // cálculos
-        var lucro_com = lucro_sem/0.7; //lucro usando apoena
-        var prod_real = producao_total * 0.7; //produção com desconto de 30% de desperdicio
-        var prod_estragado = (producao_total - prod_real).toFixed(2);
-        var lucro_perdido = (lucro_com - lucro_sem).toFixed(2);
-        // conteudo
-        result.innerHTML = `
-            <p style=" margin-top: 90px; margin-left: 50px;">Em um ano usando apoena, <br> você lucraria:</p>
-            <span style="font-family: bold; font-size: 30px; margin-left: 50px;">R$ ${(lucro_com).toFixed(2)} </span>
-            <div style="font-family: thin; font-size: 12px; margin-left: 50px; margin-top: 30px;"">
-                <li> 
-                    Produto perdido:<b> ${prod_estragado}kg </b> 
-                </li> 
-                <li> 
-                    Lucro perdido: <b>R$${(lucro_com - lucro_sem).toFixed(2)}</b> 
-                </li> 
-                <li> 
-                    Lucro Atual: <b>R$${(lucro_sem).toFixed(2)}</b> 
-                </li> 
-                <br>
-                <p> Grande parte dessas perdas são ocasionada pela falta de controle da temperatura
-            </div>
-        `;
+        // validação
+        if (producao_total == 0 || lucro_sem == 0) {
+            alert('Insira os dados para realizar a simulação!')
+        } else {
+            // cálculos
+            var lucro_com = lucro_sem/0.7; //lucro usando apoena
+            var prod_real = producao_total * 0.7; //produção com desconto de 30% de desperdicio
+            var prod_estragado = producao_total - prod_real;
+            var lucro_perdido = lucro_com - lucro_sem;
+            // conteudo
+            result.innerHTML = `
+                <p style=" margin-top: 30px; margin-left: 50px;font-size: 22px">Em um ano usando apoena, <br> você lucraria:</p>
+                <span style="font-family: bold; font-size: 30px; margin-left: 50px;">R$ ${(lucro_com).toFixed(0)} </span>
+                <div style="font-family: thin; font-size: 20px; margin-left: 50px; margin-top: 30px;"">
+                    <li> 
+                        Produto perdido:<b> ${(prod_estragado).toFixed(0)}kg </b> 
+                    </li> 
+                    <li> 
+                        Lucro perdido: <b>R$${(lucro_com - lucro_sem).toFixed(0)}</b> 
+                    </li>  
+                    <br>
+                    <p> Grande parte dessas perdas são ocasionada pela falta de controle da temperatura
+                </div>
+            `;
+        }
     }
 </script>
 

@@ -31,7 +31,7 @@ function cadastrar_usuario(responsavel, cpf, setor, cargo,  email, senha, nome) 
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():",responsavel, cpf, setor, cargo, email, senha, nome);
     var instrucao = `
         INSERT INTO usuario (nome, cpf, setor, cargo,  email, senha, fkempresa) (select '${responsavel}', '${cpf}', '${setor}', '${cargo}', '${email}', '${senha}', idempresa
-        from empresa where nome = "${nome}");
+        from empresa where nome =  '${nome}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -47,7 +47,6 @@ function cadastrar_caminhao(placa, fkempresa) {
 }
 function cadastrar_viagem(inicioviagem, nomeproduto, placaviagem) {
 
-    
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar_viagem():",inicioviagem,nomeproduto, placaviagem);
     var instrucao = `
     insert into  viagem (datainicio, fkproduto, fkcaminhao) values (
@@ -71,7 +70,7 @@ function fim_da_viagem(idviagem,fim_viagem) {
 function exibir_idviagem_usuario() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n exibir_idviagem_usuario(): ")
     var instrucao = `
-    select idviagem FROM viagem order by idviagem desc limit 1;
+    select max(idviagem) FROM viagem ;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

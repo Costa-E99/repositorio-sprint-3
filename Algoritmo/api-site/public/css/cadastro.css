@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Comic+Neue:ital,wght@0,300;0,400;1,300&family=Montserrat:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
 body {
   background: linear-gradient(91.45deg, #050d14 0.66%, #0e1e29 98.24%);
+  font-family: 'montserrat';
   margin: 0;
   padding: 0;
   background-color: black;
-  font-family: 'Alata';
+  /* font-family: 'Alata'; */
   color: #fff;
 }
 
