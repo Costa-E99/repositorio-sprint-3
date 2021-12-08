@@ -45,51 +45,62 @@
             <form id="form_cadastro" method="post" onsubmit="return cadastrar_empresa(), cadastrar_usuario()">
             <div class="box">
               <div class="box-2">
+
+
                 Nome da empresa: <br>
                 <input class="input-empresa" name="nome" placeholder="Apoena" />
                 <br> <br>
+
+
                 <span>CNPJ:</span> <br>
                 <input type="text" id="input_cnpj" name="cnpj" maxlength="14" class="input-empresa" placeholder="XX. XXX. XXX/0001-XX"/> <br>
                 <span id="span_cnpj"></span>
-                
-            </div>
-            
-            <div class="box-3">
+                <br>
+
                 <span>Responsavel:</span> <br>
                 <input class="input-empresa" name="responsavel" placeholder="Fernando"/>
-                <br> <br>
-                <span>CPF:</span> <br>
-                <input class="input-empresa" name="cpf" placeholder="Fernando"/> <br>
-                <span>Cargo:</span> <br>
-                <input class="input-empresa" name="cargo" placeholder="Fernando"/> <br>
-                <span>Setor:</span> <br>
-                <input class="input-empresa" name="setor" placeholder="Fernando"/> <br>
-                <br> <br>
-                <br> <br>
-                <br> <br>
+                <br><br>
+                
+                
                 <span>Email:</span> <br>
                 <input name="email" type="text" id="input_email"  class="input-empresa" placeholder="meuemail@provedor.com"/> <br>
                 <span id="span_email" ></span>
-                
-              </div>
-            </div>
-            <div class="box-4">
-              <div id="div_senha">
-                <span>Senha:</span>
+                <br>
+
+
+                <span>Senha:</span> <br>
                 <input type="password" name="senha" id="input_senha" class="input-empresa" placeholder="******"/> <br>
                 <span id="span_senha" ></span>
+
+            </div>
+            
+            <div class="box-3">
+                
+                <span>CPF:</span> <br>
+                <input class="input-empresa" name="cpf" placeholder="Fernando"/> <br><br>
+
+
+                <span>Cargo:</span> <br>
+                <input class="input-empresa" name="cargo" placeholder="Fernando"/> <br><br>
+
+
+                <span>Setor:</span> <br>
+                <input class="input-empresa" name="setor" placeholder="Fernando"/> <br><br>
+
+                <span>Confimar:</span> <br>
+                <input type="password" name="confirmacao-senha" id="input_confimar" class="input-empresa" placeholder="******"/> <br>
+                <span id="span_confirmar"></span>
+                  <br>
+                
+                <button class="button_conta">Cadastrar</button>
+                  
               </div>
-              <br> <br>
-              <div id="div_confirmar">
-              <span>Confimar:</span>
-              <input type="password" name="confirmacao-senha" id="input_confimar" class="input-empresa" placeholder="******"/> <br>
-              <span id="span_confirmar"></span>
             </div>
+
+
+            
             </div>
-            <div>
-              <br /><br />
-              <button class="button_conta">Cadastrar</button>
-            </div>
+            
           </form>
         </div>
         <div id="div_aguardar" class="loading-div">
