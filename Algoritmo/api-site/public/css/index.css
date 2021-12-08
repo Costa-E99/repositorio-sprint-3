@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
- background-color: black;
+ background-color: #0a0a0a;
   font-family: 'Alata';
   color: #fff;
 }
@@ -370,27 +370,40 @@ background-position-y: 60%;
   color: #fff;
 }
 /* ------------------- quem somos nos ------------ */
-.quem_somosa {
+.quem_somos1 {
   display: flex;
   /* background-color: green; */
   height: 47.5vh;
   width: 100%;
-
   background-repeat: no-repeat;
   background-size: cover;
+}
 
-
-  /* margin-top: 25px; */
+.quem_somos2 {
+  margin-top: 250px;
 }
 /* ----------------- .cimaesquerda---------------- */
 .cimaesquerda {
   height: 100%;
   width: 100%;
   padding: 0px;
+  
 }
+
 .cimaesquerda img {
-  height: 28vh;
+  height: 22vh;
   background-size: 100;
+  border-radius: 50%;
+  transition: transform 1s;
+  transform: translateX(0) scale(0.7);
+  margin-left: 60px;
+  
+}
+
+.cimaesquerda img:hover, img:focus {
+  transform: translateX(10px) scale(1.2);
+  transform: translateY(30px);
+
 }
 .cimaesquerda p {
   /* background-color: red; */
@@ -414,6 +427,9 @@ background-position-y: 60%;
   width: 70%;
   padding: 0% 0% 0% 5%;
   align-items: center;
+  margin-top: 80px;
+  
+  
 }
 .cimadireita h1 {
   font-weight: 900;
@@ -441,12 +457,15 @@ background-position-y: 60%;
   margin-top: 5%;
 }
 .baixoesquerda p {
-  margin: 10% 15% 0% 30%;
+  /* margin: 10% 15% 0% 30%; */
   height: 45%;
   width: 40%;
   font-weight: 900;
   font-size: 25px;
-  /* background-color: red; */
+  margin-top: 0px;
+  margin-left: 80px;
+  
+  
 }
 .baixoesquerda input {
   height: 10%;
@@ -455,7 +474,8 @@ background-position-y: 60%;
   border-radius: 10px;
   border-color: darkturquoise;
   color: whitesmoke;
-  margin: 0% 0% 0% 30%;
+  /* margin: 0% 0% 0% 30%; */
+  margin-left: 80px;
 }
 .baixoesquerda button {
   height: 10%;
@@ -479,14 +499,15 @@ background-position-y: 60%;
 .baixodireita {
   height: 100%;
   width: 100%;
-  /* background-color: blue; */
+  margin-top: -150px;
 }
 .baixodireita img {
-  margin-left: 30%;
+  margin-left: 720px;
   max-height: 50vh;
   max-width: 50vh;
   width: auto;
   height: auto;
+  
 }
 
 /* Tela 5 (ou rodapé) */
@@ -614,7 +635,7 @@ background-position-y: 60%;
 }
 
 .footer_2 {
-  background-color: #014545;
+  background-color: #031727;
   width: 100%;
   height: 5vh;
   margin-top: -18px;
