@@ -211,17 +211,17 @@ function fim_da_viagem(req, res) {
 
 function  exibir_idviagem_usuario(req, res) {
     
-    var fkempresa = req.body.fkempresa;
+   
 
-    if (fkempresa == undefined) {
-        res.status(400).send("fkempresa está indefinido!");
-    }else {
-        usuarioModel.exibir_idviagem_usuario(fkempresa)
+  
+    
+  
+        usuarioModel.exibir_idviagem_usuario()
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
-
+                    res.json(resultado)
                    
                 }
             ).catch(
@@ -231,7 +231,7 @@ function  exibir_idviagem_usuario(req, res) {
                     res.status(500).json(erro.sqlMessage);
                 }
             );
-    }
+    
 
 }
 
