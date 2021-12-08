@@ -35,6 +35,12 @@ router.post("/fim_da_viagem", function (req, res) {
     usuarioController.fim_da_viagem(req, res);
 })
 
+router.post("/exibir_idviagem_usuario", function (req, res) {
+    usuarioController.exibir_idviagem_usuario(req, res);
+})
+
+
+
 
 
 module.exports = router;

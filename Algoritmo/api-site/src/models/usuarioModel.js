@@ -47,12 +47,6 @@ function cadastrar_caminhao(placa, fkempresa) {
 }
 function cadastrar_viagem(inicioviagem, nomeproduto, placaviagem) {
 
-    // console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar_viagem():",inicioviagem,nomeproduto, placaviagem);
-    // var instrucao = `
-    // select idproduto from produto where nome= '${nomeproduto}'
-    // `;
-    // console.log("Executando a instrução SQL: \n" + instrucao);
-    // return database.executar(instrucao);
     
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar_viagem():",inicioviagem,nomeproduto, placaviagem);
     var instrucao = `
@@ -73,17 +67,15 @@ function fim_da_viagem(idviagem,fim_viagem) {
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
-
-
-    
-    // instrucao = `
-    // update viagem set fkproduto= (select idproduto from produto where nome= 'Uva')   
-    // where idviagem = (select idviagem from viagem as v order by idviagem desc limit 1)  ;
-    // `;
-    // console.log("Executando a instrução SQL: \n" + instrucao);
-    // return database.executar(instrucao);
 }
-
+function exibir_idviagem_usuario(fkempresa) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n exibir_idviagem_usuario(): ", fkempresa)
+    var instrucao = `
+    select idviagem FROM viagem order by idviagem desc limit 1;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 module.exports = {
     entrar,
@@ -92,5 +84,7 @@ module.exports = {
     listar,
     cadastrar_caminhao,
     cadastrar_viagem,
-    fim_da_viagem
+    fim_da_viagem,
+    exibir_idviagem_usuario,
+
 };

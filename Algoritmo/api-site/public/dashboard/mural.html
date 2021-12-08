@@ -54,9 +54,7 @@
                         <h3>Gerenciar viagens</h3>
                     </a>
                 </div>
-                <div  class="btn-nav">
-                   <button class="btnproduto" onclick="produtos()"> Produtos Cadastrados </button>
-                </div>
+              
     
                 <div class="btn-logout" onclick="limparSessao()">
                     <h3>Sair</h3>
@@ -90,7 +88,7 @@
                                 Placa do caminhão 
                                 que realizara a viagem: 
                                 <br>
-                                <input name="placaviagem" id="placaviagem" maxlength="45" type="text" placeholder="Fruta, Laticínio..." disabled> 
+                                <input name="placaviagem" id="placaviagem" maxlength="45" type="text" placeholder="aaaa000" disabled> 
                                 <br>
                                 <br>
                                 Data de inicio: 
@@ -177,6 +175,7 @@
 </html>
 
 <script>
+   
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     // variaves para mudar o disabled das inputs
     var lista_frutas=[]
@@ -289,7 +288,9 @@ cheque_viagem= false;
             nome= ``
             viagem_placa=``
             inicio_viagem=``
-            
+            exibir_idviagem_usuario()
+            alert(  )
+        
         }
         
        
@@ -468,7 +469,56 @@ function cadastrar_caminhao() {
     
     }   
     
+    function exibir_idviagem_usuario() {
+        // aguardar();
 
+        var fkempresa= sessionStorage.FKEMPRESA
+        
+
+
+        fetch("/usuarios/exibir_idviagem_usuario", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                fkempresa:fkempresa,
+
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+            
+                    sessionStorage.EMAIL_USUARIO = json.email;
+
+
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao exibir id!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+    
+    
 </script>
 
 <script>

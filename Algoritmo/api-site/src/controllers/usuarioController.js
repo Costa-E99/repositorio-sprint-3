@@ -209,6 +209,32 @@ function fim_da_viagem(req, res) {
     }
 }
 
+function  exibir_idviagem_usuario(req, res) {
+    
+    var fkempresa = req.body.fkempresa;
+
+    if (fkempresa == undefined) {
+        res.status(400).send("fkempresa está indefinido!");
+    }else {
+        usuarioModel.exibir_idviagem_usuario(fkempresa)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                   
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao iniciar a viagem ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
 
 
 module.exports = {
@@ -219,5 +245,7 @@ module.exports = {
     cadastrar_caminhao,
     cadastrar_viagem,
     testar,
-    fim_da_viagem
+    fim_da_viagem,
+    exibir_idviagem_usuario,
+   
 }
