@@ -28,8 +28,13 @@ body {
   width: 100%;
 }
 /*--------Alterando inputs e botões---------*/
+.dash-right .avisos .div-form label h3{
+  width: 100%;
+  color: #32b9cd;
+}
 .dash-right .avisos .div-form label {
   width: 100%;
+  color: white;
 }
 
 .dash-right .avisos .div-form input {
