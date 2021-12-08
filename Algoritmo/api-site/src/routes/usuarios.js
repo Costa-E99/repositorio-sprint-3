@@ -39,6 +39,10 @@ router.get("/exibir_idviagem_usuario", function (req, res) {
     usuarioController.exibir_idviagem_usuario(req, res);
 })
 
+router.post("/exibir_placa", function (req, res) {
+    usuarioController.exibir_placa(req, res);
+})
+
 
 
 

@@ -26,7 +26,7 @@
     -->
 </head>
 
-<body onload="validarSessao()" style="background-color: #161618;">
+<body onload="validarSessao(), exibir_placa() " style="background-color: #161618;">
 
 
         <div class="janela">
@@ -121,12 +121,13 @@
                                     <div class="prod_4" id="mostrar">Banana</div>
                                     <div class="prod_5" id="mostrar">Manga</div>
                             </button>
-                            <button id="sumir">Lista dos caminhões
+                            <div id="sumir">
+                            <button >Lista dos caminhões </button>
                                 <div class="grafico1" id="mostrar">
-                                    <div class="prod_2" id="mostrar">FML-7668</div>
-                                    <div class="prod_3" id="mostrar">CYO-3883</div>
-                                    <div class="prod_4" id="mostrar">BTU-0694</div>
-                                    <div class="prod_5" id="mostrar">IAH-4874</div>
+                                  <div  id="placas">
+                                    <div id="titulo_camnhao"></div>
+                            </div>
+                                  </div>
                                   </div>
                             </button>
                             <button onclick="cadastrar_caminhaotela()">Cadastre seu Caminhão</button>
@@ -137,7 +138,7 @@
                     </div>
                 </div>
             </div>
-
+                
 
 
 
@@ -384,6 +385,7 @@ function cadastrar_caminhao() {
                 window.alert("Viagem finalizada com sucesso!");
                 // window.location = "mural.html";
                 // finalizarAguardar();
+                exibir_placa()
             } else {
                 throw ("Houve um erro ao tentar finalizar a viagem!");
             }
@@ -517,6 +519,63 @@ cheque_viagem= false;
         
        
     }
+    var lista_caminhao= []
+    
+    function exibir_placa() {
+        // aguardar();
+
+        var fkempresa= sessionStorage.FKEMPRESA
+        
+
+
+        fetch("/usuarios/exibir_placa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                fkempresa:fkempresa,
+
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    for(var contador= 0;contador < json.length ; contador++){
+                    lista_caminhao.push(json[contador].placa)
+                    placas.innerHTML+= ` <i>${lista_caminhao[contador]} </i> <br>  <div class="divisoria"> </div> <br> `
+                    titulo_camnhao.innerHTML= `<h3> Placas </h3>`
+                    }
+                
+                 
+
+
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao exibir id!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+    
+    
 
 
 

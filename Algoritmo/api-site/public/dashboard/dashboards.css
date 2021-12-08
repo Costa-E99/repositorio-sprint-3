@@ -119,19 +119,30 @@ body {
 
 /*-------------Gráfico-------------*/
 .grafico1 {
-  background-color: #eaeaea;
-  /*width: 100%;*/
+  background: linear-gradient(90.12deg, #041e33 0.11%, #050e15 99.9%);
+  width: 20vw;
   height: 20vh;
-  margin: 10px;
+  margin-right: 100vw;
   padding: 5px;
   overflow-y: scroll;
   border: #186baf solid 2px;
   border-radius: 12px;
+  position: absolute;
+  color: #fff;
+ margin-left: -5vw; 
+ text-align: center;
 }
 .grafico1::-webkit-scrollbar {
-  background-color: #186baf;
+  background-color: transparent;
   color: #32b9cd;
   border-radius: 10px;
+  width: 1px;
+}
+.divisoria{
+  width: 90%;
+  margin-left: 5%;
+  height: 0.1vh;
+  background-color: #5c6bc0;
 }
 /*-------------Gráfico-------------*/
 

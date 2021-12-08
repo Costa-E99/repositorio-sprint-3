@@ -234,7 +234,31 @@ function  exibir_idviagem_usuario(req, res) {
     
 
 }
+function exibir_placa(req, res) {
+    
+    var fkempresa = req.body.fkempresa;
 
+    if (fkempresa == undefined) {
+        res.status(400).send("fkempresa está indefinido!");
+    }else {
+        usuarioModel.exibir_placa(fkempresa)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+                    res.json(resultado)
+                   
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao iniciar a viagem ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
 
 
 module.exports = {
@@ -247,5 +271,6 @@ module.exports = {
     testar,
     fim_da_viagem,
     exibir_idviagem_usuario,
+    exibir_placa,
    
 }
