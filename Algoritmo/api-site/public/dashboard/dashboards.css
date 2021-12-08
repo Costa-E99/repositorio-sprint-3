@@ -86,6 +86,9 @@ body {
   align-items: center;
   justify-content: center;
 }
+.janela {
+  width: 100%;
+}
 /*
   .div-form {
   display: flex;
