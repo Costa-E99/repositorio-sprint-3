@@ -68,8 +68,8 @@ function fim_da_viagem(idviagem,fim_viagem) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-function exibir_idviagem_usuario(fkempresa) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n exibir_idviagem_usuario(): ", fkempresa)
+function exibir_idviagem_usuario() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n exibir_idviagem_usuario(): ")
     var instrucao = `
     select idviagem FROM viagem order by idviagem desc limit 1;
     `;

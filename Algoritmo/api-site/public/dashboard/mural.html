@@ -224,81 +224,7 @@
     }
 
 
-    function iniciar_viagem() {
-        cheque_caminhao=false;
-cheque_viagem= false;
-        var nome = nome_prod.value
-        var viagem_placa= placaviagem.value
-        var iviagem = dt_inicio.value
-        var placa = document.querySelector("#in_placa");
-        var produto = document.querySelector("#nome_prod");
-        var inicio_viagem = document.querySelector("#dt_inicio");
-        var fim_viagem = document.querySelector("#dt_chegada");
-        dt_chegada.value= ''
-        id_viagem.value = ''
-        in_placa.value= ''
-        
-        placa.disabled = true;
-        produto.disabled = false;
-        placaviagem.disabled = false;
-        inicio_viagem.disabled = false;
-        fim_viagem.disabled = true;
-        id_viagem.disabled= true;
-        
-        if(cheque_produto== false){
-            // placa.disabled = true;
-            produto.disabled = false;
-            placaviagem.disabled = false;
-            inicio_viagem.disabled = false;
-            // fim_viagem.disabled = true;
-             cheque_produto= true;
-        }
-            else if(nome.trim().length <= 0 && viagem_placa.trim().length >=1){
-                alert('insira o nome do seu produto')
-            }
-            else if(nome.trim().length <= 0 && iviagem.trim().length >=1){
-                alert('insira o nome do seu produto')
-            }
-            else if(iviagem.trim().length==0 && nome.trim().length>=1){
-                alert('insira a data de inicio da sua viagem')
-            }  
-            
-            else if(iviagem.trim().length==0 && viagem_placa.trim().length>=1){
-                alert('insira a data de inicio da sua viagem')
-            }
-            else if(viagem_placa.trim().length == 0 && iviagem.trim().length >=1 ){
-                alert( 'insira do caminhão que realizara a viagem')
-            }
-            else if(viagem_placa.trim().length == 0 && nome.trim().length >=1 ){
-                alert( 'insira do caminhão que realizara a viagem')
-            }
-            
-        
-        
-        else if ( nome.trim().length<=0 && viagem_placa.trim().length<=0 && iviagem.trim().length<= 0)  {
-            produto.disabled= true;
-            placaviagem.disabled= true;
-            inicio_viagem.disabled= true;
-            cheque_produto = false;
-
-            // alert(`produto cadastrado`)
-        }
-        else{
-            cadastrar_viagem()
-            nome= ``
-            viagem_placa=``
-            inicio_viagem=``
-            exibir_idviagem_usuario()
-            alert(  )
-        
-        }
-        
-       
-    }
-
-
-
-
+    
     function finalizar_viagem() {
         cheque_produto= false;
          cheque_caminhao= false;
@@ -421,6 +347,7 @@ function cadastrar_caminhao() {
                 window.alert("Cadastro da viagem realizado com sucesso!");
                 // window.location = "mural.html";
                 // finalizarAguardar();
+                exibir_idviagem_usuario();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro da viagem!");
               
@@ -468,23 +395,20 @@ function cadastrar_caminhao() {
 
     
     }   
-    
+    var idviagem1= 0
     function exibir_idviagem_usuario() {
         // aguardar();
 
-        var fkempresa= sessionStorage.FKEMPRESA
+    
         
 
 
         fetch("/usuarios/exibir_idviagem_usuario", {
-            method: "POST",
+            method: "GET",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                fkempresa:fkempresa,
-
-            })
+           
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
@@ -494,8 +418,11 @@ function cadastrar_caminhao() {
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
+                    idviagem1= json[0].idviagem
+                    alert( `O numero de identificação desta viagem é ${idviagem1}`)
+
             
-                    sessionStorage.EMAIL_USUARIO = json.email;
+                 
 
 
 
@@ -517,6 +444,82 @@ function cadastrar_caminhao() {
 
         return false;
     }
+
+    
+    function iniciar_viagem() {
+        cheque_caminhao=false;
+cheque_viagem= false;
+        var nome = nome_prod.value
+        var viagem_placa= placaviagem.value
+        var iviagem = dt_inicio.value
+        var placa = document.querySelector("#in_placa");
+        var produto = document.querySelector("#nome_prod");
+        var inicio_viagem = document.querySelector("#dt_inicio");
+        var fim_viagem = document.querySelector("#dt_chegada");
+        dt_chegada.value= ''
+        id_viagem.value = ''
+        in_placa.value= ''
+        
+        placa.disabled = true;
+        produto.disabled = false;
+        placaviagem.disabled = false;
+        inicio_viagem.disabled = false;
+        fim_viagem.disabled = true;
+        id_viagem.disabled= true;
+        
+        if(cheque_produto== false){
+            // placa.disabled = true;
+            produto.disabled = false;
+            placaviagem.disabled = false;
+            inicio_viagem.disabled = false;
+            // fim_viagem.disabled = true;
+             cheque_produto= true;
+        }
+            else if(nome.trim().length <= 0 && viagem_placa.trim().length >=1){
+                alert('insira o nome do seu produto')
+            }
+            else if(nome.trim().length <= 0 && iviagem.trim().length >=1){
+                alert('insira o nome do seu produto')
+            }
+            else if(iviagem.trim().length==0 && nome.trim().length>=1){
+                alert('insira a data de inicio da sua viagem')
+            }  
+            
+            else if(iviagem.trim().length==0 && viagem_placa.trim().length>=1){
+                alert('insira a data de inicio da sua viagem')
+            }
+            else if(viagem_placa.trim().length == 0 && iviagem.trim().length >=1 ){
+                alert( 'insira do caminhão que realizara a viagem')
+            }
+            else if(viagem_placa.trim().length == 0 && nome.trim().length >=1 ){
+                alert( 'insira do caminhão que realizara a viagem')
+            }
+            
+        
+        
+        else if ( nome.trim().length<=0 && viagem_placa.trim().length<=0 && iviagem.trim().length<= 0)  {
+            produto.disabled= true;
+            placaviagem.disabled= true;
+            inicio_viagem.disabled= true;
+            cheque_produto = false;
+
+            // alert(`produto cadastrado`)
+        }
+        else{
+            cadastrar_viagem()
+            nome= ``
+            viagem_placa=``
+            inicio_viagem=``
+
+            
+            
+        }
+        
+       
+    }
+
+
+
     
     
 </script>
