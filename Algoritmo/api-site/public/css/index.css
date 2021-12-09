@@ -147,11 +147,6 @@ position: relative;
  width: 98vw;
  /* display: flex; */
  background-color:#161616 ;
-
- 
- 
- 
-
 }
 .costas{
   /* background-color: #094373; */
@@ -178,10 +173,9 @@ position: relative;
   /* width: 16vw; */
   border-radius: 25px;
   background-color: #4f8282;
-  border: solid 2px black;
-
-  
+  border: solid 2px black; 
 }
+
 .imagem1{
   margin-top: 1vh;
   width:8vw ;
@@ -329,9 +323,11 @@ background-position-y: 60%;
 .textoserviço {
   font-size: 15px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin: auto;
   text-align: center;
-  color: rgba(255, 255, 255, 0.582);
+  color: #fff;
   margin-top: 10px;
 }
 
@@ -355,9 +351,11 @@ background-position-y: 60%;
   width: 30%;
   height: 120px;
   border-radius: 15px;
-  background: rgba(22, 44, 60, 1);
+  background: linear-gradient(90.12deg, #094373 0.11%, #04cccc 99.9%);
   text-align: center;
   margin: auto;
+  color: #fff;
+  border: #16476f 3px outset;
 }
 
 /* ------------------------- beneficios --------------- */
@@ -465,8 +463,6 @@ background-position-y: 60%;
   font-size: 25px;
   margin-top: 0px;
   margin-left: 80px;
-  
-  
 }
 .baixoesquerda input {
   height: 10%;
@@ -487,6 +483,7 @@ background-position-y: 60%;
   color: whitesmoke;
   /*margin: 0% 0% 0% 30%;*/
 }
+
 .baixoesquerda div {
   height: 10%;
   width: 15%;
@@ -498,17 +495,36 @@ background-position-y: 60%;
   margin-top: -6%;
 }
 .baixodireita {
-  height: 100%;
-  width: 100%;
+  /* height: 100%; */
+  width: 35%;
+  /*float: right;
+  margin-left: 50vw;*/
   margin-top: -150px;
+  /*background-color: green;*/
+  margin-left: 60%;
 }
 .baixodireita img {
-  margin-left: 720px;
+  width: 30vw;
+  height: 55vh;
+  /* margin-left: 49; */
+  /* background-color: red;*/ 
+}
+
+/*margin-left: 60vw;
   max-height: 50vh;
-  max-width: 50vh;
-  width: auto;
-  height: auto;
-  
+  max-width: 50vh;*/
+#retorno {
+  width: 30%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: 30vh;
+
+  background-color: #094373;
+  color: #fff;
+  border-radius: 12px;
 }
 
 /* Tela 5 (ou rodapé) */
