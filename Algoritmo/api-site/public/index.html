@@ -119,7 +119,7 @@
             <div class="card-content">
                 <h1>Simule e entenda quais os impactos do Apoena no seu negócio.</h1>
                 <p>faça uma rápida simulação para entender qual o impacto do desperdicio no seu negócio.</p>
-                <button href="simulador.html" class="botaoCalcular"> <a> Calcular </a></button>
+                <button href="simulador.html" class="botaoCalcular"> <a href="simulador.html"> Calcular </a></button>
             </div>
             <div class="card-img">
                 <img src="imgs/Frame.png">
@@ -143,7 +143,7 @@
 
                 <div class="box">
                     <img style="margin-top: 20px;" class="box-img" src="imgs/graphcs.png">
-                    <span style="margin-left: 10px; margin-top: 15px;" class="textoserviço">geração de relatórios</span>
+                    <span  class="textoserviço">geração de relatórios</span>
                 </div>
 
                 <div style="background-color:#038C8C;" class="box">
@@ -161,12 +161,12 @@
 
                 <div class="box">
                     <img style="margin-top: 30px;" class="box-img" src="imgs/persons.png">
-                    <span style="margin-left: 20px;" class="textoserviço">vários produtores</span>
+                    <span  class="textoserviço">vários produtores</span>
                 </div>
 
                 <div class="box">
                     <img style="margin-top: 30px;" class="box-img" src="imgs/location.png">
-                    <span style="margin-bottom: 60px; margin-left: 20px;" class="textoserviço">as melhores rotas</span>
+                    <span style="margin-top: -1%;" class="textoserviço">as melhores rotas</span>
                 </div>
             </div>
 
@@ -209,12 +209,15 @@
         <div class="baixoesquerda">
             <p>Encontre a transportadora que <br> usa apoena mais <br> próxima de Você</p>
             <input id="input_cep" placeholder=" Insira seu CEP"> <button onclick="consulta()">Consultar</button> 
-            <br>
+            <br><br><br><br><br><br>
             <div id="retorno"></div>
-            <script src="js/via_cep.js"></script>
+            <!--<script src="js/via_cep.js"></script>-->
 
         </div>
-        <div class="baixodireita"> <img src="imgs/MapadePonto.png" alt=""> </div>
+
+        <div class="baixodireita"> 
+            <img src="imgs/MapadePonto.png" alt=""> 
+        </div>
 
     </div>
    
@@ -283,17 +286,6 @@
 </body>
 
 </html>
-
-    <script>
-    // HELP DESK ----------------------------------- //
-    
-	window.fwSettings={
-	'widget_id':73000000599
-	};
-	!function(){if("function"!=typeof window.FreshworksWidget){var n=function(){n.q.push(arguments)};n.q=[],window.FreshworksWidget=n}}() 
-
-    //-----------------------------------------------//
-    </script>
 <script>
     function direita(){
         info.innerHTML = ` <div class="info">
@@ -332,7 +324,7 @@
                         </div>
                         <div class="dia1">
                             <i>Segundo Passo</i> <br>
-                            O cliente nos informa  quais produtos ele transporta, e nós checamos no nosso banco de dados, se o produto não estiver cadastrado nós cadastramos
+                            O cliente nos informa  quais produtos ele transporta, e nós checamos no nosso banco de dados, caso não tenha cadastro nós cadastramos
                         </div>    
                         <div class="imagem3">
                         </div>
@@ -348,13 +340,13 @@
                     </div>`
     }
 </script>
-<!-- <script> -->
-    <!-- // HELP DESK ----------------------------------- //
+ <script> 
+     //-------------------------HELP DESK ------------------------//
         window.fwSettings={
         'widget_id':72000000689
         };
         !function(){if("function"!=typeof window.FreshworksWidget){var n=function(){n.q.push(arguments)};n.q=[],window.FreshworksWidget=n}}()  
-    //-----------------------------------------------//
+    //------------------------------------------------------------//
     //-----------------------Consulta CEP------------------------//
     function consulta() {
       var cep = input_cep.value;
@@ -369,7 +361,15 @@
           retorno.innerHTML = 
           `
             Apoena mais proxima a você é em São Paulo - SP
+            <br>
+            Mais ao centro da cidade.
           `
+          } else {
+              alert(`
+              Infelizmente não temos uma Apoena proxima
+              <br>
+              a região do CEP ${cep} informado;
+              `);
           }
         })
         console.log(resposta);
@@ -378,4 +378,4 @@
       })
     }
     //-----------------------------------------------------------//
-    </script> -->
+    </script>
