@@ -62,14 +62,16 @@ serial.SetConnection();
 
 
 function inserirBanco(data,lista){
+    console.log("data", data);
     lista.push(parseFloat(data));
 
     let valor = lista[lista.length - 1];
-
+    console.log("lista", lista);
     let local = ['Sorocaba', 'São Paulo', 'Poá', 'Ribeirão Pires', 'Campos do Jordão', 'Vista Alegre', 'Avenida Paulista', 'Jardins', 'Oscar Freire', 'Faria Lima']
-    temperatura = lista[lista.length - 1];
+    let temperatura = lista[lista.length - 1];
+    console.log("temperatura", temperatura)
     let temperaturaVar = 0;
-    if (temperatura == null) {
+    if (!temperatura) {
         temperaturaVar = 0;
     }else {
         temperaturaVar = parseFloat(temperatura);
@@ -77,7 +79,7 @@ function inserirBanco(data,lista){
     let data_agora = new Date()
 
     var sql = "INSERT INTO dados(tempatual, datahora, localizacao, fkcaminhao) VALUES(?)";
-    values = [temperaturaVar*(Math.random()+0.5), data_agora, local[Math.floor(Math.random() * local.length)], 100];
+    var values = [temperaturaVar*(Math.random()+0.5), data_agora, local[Math.floor(Math.random() * local.length)], 100];
     console.log();
     db.query(sql, [values], function(err, result){
         if(err) throw err;
