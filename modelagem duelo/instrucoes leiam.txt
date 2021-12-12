@@ -1,0 +1,20 @@
+temos 3 galaxias:
+ via lactea,
+a-centauros, 
+noxus.
+
+ a galaxia noxu é nova que ainda nção foi descoberta,
+os planetas da via lactea fizeram uma aliança,
+os planetas da a_centauros fizeram uma aliança,
+
+para saber quem vai ser o dono da novagalaxia que tem muitos recursos.
+
+
+não inserir mais valores nas tabelas planetas, galaxias e relacao entre planetas, 
+
+a tabela planeta tem um check em clima,
+
+
+a tabela relacao entre planetas tem duas fk uma no campo 
+planeta um e outra no campo planeta2.
+NAO INSERIR PLANETAS COM FKGALAXIA 3
